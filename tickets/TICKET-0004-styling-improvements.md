@@ -2,11 +2,23 @@
 
 ## State
 
-- **status:** todo
-- **commit:**
-- **tests:**
+- **status:** done
+- **commit:** bac16f6 (TICKET-0004: visual polish — typographic scale, section bands, refined components)
+- **tests:** No browser render check was possible in this environment — that is the
+  honest gap; a human should eyeball desktop + mobile before publishing. What was
+  actually checked, structurally: (1) CSS brace balance — 56 opening / 56 closing;
+  (2) class cross-reference both directions — every class in index.html has rules in
+  styles.css and every class selector in styles.css appears in index.html;
+  (3) anchor integrity — all 7 fragment hrefs (incl. skip link) resolve to existing
+  ids; (4) external-request sweep — zero http(s)/url()/@import in CSS, only relative
+  styles.css link in HTML, no script tags; (5) contrast ratios hand-computed (WCAG
+  relative luminance): accent #0b4f8a on white 8.4:1, white on accent 8.4:1 (button,
+  principle numbers, skip link), muted #4a5260 on white ~7.4:1 and on band bg
+  #eef2f6 7.0:1 — all pass AA with margin; (6) manual read-through of the full CSS
+  and the HTML diff. Not verified: actual rendering, the clip-path full-bleed band
+  technique on real viewports, mobile nav wrap below 600px.
 - **opened:** 2026-06-09
-- **closed:**
+- **closed:** 2026-06-09
 
 ## Ask
 
