@@ -2,11 +2,15 @@
 
 ## State
 
-- **status:** todo
-- **commit:**
-- **tests:**
+- **status:** done
+- **commit:** (this ticket is configuration, not code: repo created public at
+  github.com/jakupguven-ab/website, history pushed, Pages enabled main/root via API
+  2026-06-09 — by the assistant under the owner's explicit instruction. URL recorded
+  in README.md, committed.)
+- **tests:** live fetch 2026-06-09: https://jakupguven-ab.github.io/website/ serves
+  with expected content (info@jakupguven.se present) and styles.css returns HTTP 200.
 - **opened:** 2026-06-09
-- **closed:**
+- **closed:** 2026-06-09
 
 ## Ask
 
