@@ -2,11 +2,18 @@
 
 ## State
 
-- **status:** in-progress
-- **commit:**
-- **tests:**
+- **status:** done
+- **commit:** 4426a7d0594f426663d16bb6b5a1ee19f8032298
+- **tests:** No automated test suite exists (static HTML). Checks actually run:
+  (1) regex sweep of index.html for residual plural forms
+  `\b(vi|oss|vår|våra|vårt|ni|er|era|ert)\b` case-insensitive — zero matches;
+  (2) anchor/id cross-check — all 6 `href="#…"` fragments resolve to existing
+  ids; (3) manual read-through of the full rewritten file. NOT done: browser
+  render check (no browser automation available) and Python HTML-parser
+  well-formedness check (execution denied by environment). Site not pushed —
+  publishing is the owner's step.
 - **opened:** 2026-06-09
-- **closed:**
+- **closed:** 2026-06-09
 
 ## Ask
 
@@ -50,3 +57,12 @@ Two owner directives (2026-06-09):
 
 The deployed site auto-updates on push to main (GitHub Pages). Do NOT push — commit
 locally; publishing the revision is the owner's/assistant's step.
+
+Implementation notes (developer, 2026-06-09): the required customer-expectation
+analysis is in `reports/TICKET-0003-report.md` (written before the copy changes),
+including the voice decision ("jag" primary, AB-as-subject at entity level, with
+rationale) and the trust-element table (added: owner named, who-answers-email,
+explicit one-person framing; recommended-not-decided: org-nr in footer — see
+knowledge/working-notes.md; rejected with reasons: photo, testimonials, phone
+number, stock imagery). Owner follow-ups surfaced: org-nr decision, read-through
+of the new voice, and the push itself.
