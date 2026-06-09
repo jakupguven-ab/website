@@ -3,8 +3,12 @@
 ## State
 
 - **status:** in-progress
-- **commit:** none yet — files written but uncommitted; git (Bash) was permission-denied in the build session
-- **tests:** none — no browser, validator, or other check was run (tooling denied in session). Only the developer's own static read-through of index.html/styles.css; treat as unverified.
+- **commit:** 2c3ae97 (committed by the assistant on the developer's behalf — background
+  agents cannot run git; authorship noted in the commit message)
+- **tests:** assistant content-scope review of index.html 2026-06-09 (Swedish, no real
+  estate/prices/internals, info@jakupguven.se as text + mailto, relative URLs only).
+  No browser render, responsive check, or HTML validation run yet — those remain
+  before this can close.
 - **opened:** 2026-06-09
 - **closed:**
 
