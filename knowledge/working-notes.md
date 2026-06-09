@@ -20,6 +20,20 @@ public-safe.
 - **date:** 2026-06-09
 - **status:** open
 
+## v1 design choices made without owner sign-off (TICKET-0001)
+- **note:** Developer choices, all open to iteration: (1) single page rather than
+  multiple pages — content volume didn't justify more; (2) no images or logo, pure
+  text-first as briefed; (3) light theme, system font stack, dark-blue accent
+  (#0b4f8a) chosen for contrast, no brand palette exists yet; (4) tone is "du" form,
+  plain Swedish; (5) the about-section wording ("Litet med avsikt…") is the
+  developer's framing of credibility for a one-person company — owner should read and
+  confirm it sounds like him; (6) footer says "Malmö" per the brief but no street
+  address/org-nr is published — common on Swedish company sites to include org-nr,
+  owner's call whether to add it.
+- **source:** developer (TICKET-0001 implementation)
+- **date:** 2026-06-09
+- **status:** open
+
 ## Custom domain (jakupguven.se) comes later
 - **note:** v1 hosts on the default GitHub Pages URL. Pointing jakupguven.se (or
   www/subdomain) at Pages needs DNS changes at the registrar — owner action, later

@@ -2,9 +2,9 @@
 
 ## State
 
-- **status:** todo
-- **commit:**
-- **tests:**
+- **status:** in-progress
+- **commit:** none yet — files written but uncommitted; git (Bash) was permission-denied in the build session
+- **tests:** none — no browser, validator, or other check was run (tooling denied in session). Only the developer's own static read-through of index.html/styles.css; treat as unverified.
 - **opened:** 2026-06-09
 - **closed:**
 
