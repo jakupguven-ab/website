@@ -34,6 +34,29 @@ public-safe.
 - **date:** 2026-06-09
 - **status:** open
 
+## Voice is "jag" + company-as-subject at entity level (TICKET-0003)
+- **note:** Per owner directive, all "vi/oss" copy was reworked to a one-person
+  voice. Choice: "jag" as primary voice, "Jakup Güven AB" as subject only where
+  the legal entity is the natural subject (title, meta, hero opening, footer).
+  Rationale (full analysis in reports/TICKET-0003-report.md): "jag" answers the
+  size question honestly instead of dodging it, and the target audience deals
+  with one-person firms daily. Owner should read the new "Vem du pratar med" and
+  Kontakt sections and confirm the voice sounds like him.
+- **source:** developer (TICKET-0003 implementation)
+- **date:** 2026-06-09
+- **status:** open — awaiting owner read-through
+
+## Org-nr in footer — developer recommendation: add it (TICKET-0003)
+- **note:** Still the owner's open call (see TICKET-0001 note above), but
+  TICKET-0003's customer analysis strengthens the case for publishing it: the
+  target audience routinely checks suppliers on allabolag.se, the org-nr is
+  already public there, it's standard practice on Swedish company sites, and its
+  absence is more conspicuous than its presence. Not added pending owner
+  decision.
+- **source:** developer (TICKET-0003 customer-expectation analysis)
+- **date:** 2026-06-09
+- **status:** open — owner decision
+
 ## Custom domain (jakupguven.se) comes later
 - **note:** v1 hosts on the default GitHub Pages URL. Pointing jakupguven.se (or
   www/subdomain) at Pages needs DNS changes at the registrar — owner action, later
