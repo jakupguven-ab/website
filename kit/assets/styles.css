@@ -1,0 +1,98 @@
+/* Virtual Employees — shared design tokens, base + reveal animation.
+   Theme everything from the :root tokens below. Components reference these
+   via var(--token). Tabler icon webfont is self-hosted in ../assets/icons (repo root). */
+
+:root {
+  --color-background-primary:   #ffffff;
+  --color-background-secondary: #f6f5f1;
+  --color-background-tertiary:  #fbfaf7;
+  --color-background-info:    #e6f1fb;
+  --color-background-success: #e1f5ee;
+  --color-background-warning: #faeeda;
+  --color-background-danger:  #fcebeb;
+
+  --color-text-primary:   #1f1e1b;
+  --color-text-secondary: #6b6a61;
+  --color-text-tertiary:  #9a988c;
+  --color-text-info:    #185fa5;
+  --color-text-success: #0f6e56;
+  --color-text-warning: #854f0b;
+  --color-text-danger:  #a32d2d;
+
+  --color-border-tertiary:  rgba(31,30,27,0.10);
+  --color-border-secondary: rgba(31,30,27,0.17);
+  --color-border-info:      rgba(24,95,165,0.5);
+
+  /* solid accent for filled buttons / badges — readable in light + dark */
+  --color-accent:    #185fa5;
+  --color-on-accent: #ffffff;
+
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background-primary:   #1f1e1c;
+    --color-background-secondary: #2a2926;
+    --color-background-tertiary:  #18120f;
+    --color-background-info:    #123a5e;
+    --color-background-success: #0e4a3b;
+    --color-background-warning: #5a3608;
+    --color-background-danger:  #5a1f1f;
+
+    --color-text-primary:   #f2f1ec;
+    --color-text-secondary: #a8a69b;
+    --color-text-tertiary:  #75736a;
+    --color-text-info:    #9fc6ee;
+    --color-text-success: #7fd8bd;
+    --color-text-warning: #f0c277;
+    --color-text-danger:  #f0a3a3;
+
+    --color-border-tertiary:  rgba(255,255,255,0.12);
+    --color-border-secondary: rgba(255,255,255,0.20);
+    --color-border-info:      rgba(120,180,240,0.5);
+
+    --color-accent:    #2f7bc9;
+    --color-on-accent: #ffffff;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-background-tertiary);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px;
+  min-height: 100vh;
+}
+
+input { font-family: inherit; }
+
+/* The component frame. Each component's root carries .app */
+.app { flex: 0 0 auto; }
+
+/* ---- Reveal animation ----------------------------------------------------
+   Structure paints immediately. Elements marked .reveal start hidden and
+   rise in, in document order, once the component scrolls into view — then
+   stay. If JS is unavailable, everything is shown (no .js class on <html>). */
+.js .app .reveal { opacity: 0; transform: translateY(10px); }
+.js .app.in .reveal {
+  animation: ve-rise 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes ve-rise { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .app .reveal { opacity: 1 !important; transform: none !important; animation: none !important; }
+}
