@@ -1,367 +1,175 @@
-/* Jakup Güven AB — webbplatsens stilar.
-   Ren CSS, inga ramverk, inga externa anrop (systemtypsnitt).
-   Designhållning: återhållsamt men omsorgsfullt — trovärdigt, inte glansigt. */
+/* Jakup Güven AB — public site.
+   Design system adopted from the concept component kit (kit/assets/styles.css):
+   same tokens (colors incl. dark scheme, radii, font) so the embedded product
+   mockups and the page share one theme. Fully static, self-hosted assets only. */
 
 :root {
-  --text: #1a1f29;
-  --text-muted: #4a5260;
-  --bg: #ffffff;
-  --bg-alt: #eef2f6;
-  --accent: #0b4f8a;
-  --accent-dark: #083a66;
-  --border: #d8dde3;
-  --max-width: 44rem;
-  --radius: 6px;
+  --color-background-primary:   #ffffff;
+  --color-background-secondary: #f6f5f1;
+  --color-background-tertiary:  #fbfaf7;
+  --color-background-info:    #e6f1fb;
+  --color-background-success: #e1f5ee;
+  --color-background-warning: #faeeda;
+  --color-background-danger:  #fcebeb;
+
+  --color-text-primary:   #1f1e1b;
+  --color-text-secondary: #6b6a61;
+  --color-text-tertiary:  #9a988c;
+  --color-text-info:    #185fa5;
+  --color-text-success: #0f6e56;
+  --color-text-warning: #854f0b;
+  --color-text-danger:  #a32d2d;
+
+  --color-border-tertiary:  rgba(31,30,27,0.10);
+  --color-border-secondary: rgba(31,30,27,0.17);
+  --color-border-info:      rgba(24,95,165,0.5);
+
+  --color-accent:    #185fa5;
+  --color-on-accent: #ffffff;
+
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background-primary:   #1f1e1c;
+    --color-background-secondary: #2a2926;
+    --color-background-tertiary:  #18120f;
+    --color-background-info:    #123a5e;
+    --color-background-success: #0e4a3b;
+    --color-background-warning: #5a3608;
+    --color-background-danger:  #5a1f1f;
 
-/* Mjuk rullning bara för den som inte bett om reducerad rörelse */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
+    --color-text-primary:   #f2f1ec;
+    --color-text-secondary: #a8a69b;
+    --color-text-tertiary:  #75736a;
+    --color-text-info:    #9fc6ee;
+    --color-text-success: #7fd8bd;
+    --color-text-warning: #f0c277;
+    --color-text-danger:  #f0a3a3;
+
+    --color-border-tertiary:  rgba(255,255,255,0.12);
+    --color-border-secondary: rgba(255,255,255,0.20);
+    --color-border-info:      rgba(120,180,240,0.5);
+
+    --color-accent:    #2f7bc9;
+    --color-on-accent: #ffffff;
   }
+}
+
+* { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  font-size: 1.0625rem;
-  line-height: 1.7;
-  color: var(--text);
-  background: var(--bg);
-}
-
-::selection {
-  background: var(--accent);
-  color: #fff;
-}
-
-/* Synligt fokus för tangentbordsnavigering, utan att störa musklick */
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-/* Hopplänk för tangentbordsnavigering */
-.skip-link {
-  position: absolute;
-  left: -999px;
-  top: 0;
-  background: var(--accent);
-  color: #fff;
-  padding: 0.5rem 1rem;
-  z-index: 10;
-}
-
-.skip-link:focus {
-  left: 0;
-}
-
-/* Sidhuvud — linjen löper över hela bredden, innehållet följer spalten */
-.site-header {
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-}
-
-.header-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem 1.5rem;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1.1rem 1.25rem;
-}
-
-.site-name {
-  margin: 0;
-  font-weight: 700;
-  font-size: 1.0625rem;
-  letter-spacing: 0.01em;
-}
-
-.site-header nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1.4rem;
-}
-
-.site-header nav a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 0.9375rem;
-  padding: 0.2rem 0;
-}
-
-.site-header nav a:hover,
-.site-header nav a:focus {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 0.35em;
-  text-decoration-thickness: 1.5px;
-}
-
-/* Innehåll */
-main {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1.25rem;
-}
-
-section {
-  margin-top: 4.5rem;
-  scroll-margin-top: 1.5rem; /* luft ovanför rubriken vid ankarhopp */
-}
-
-/* Typografisk skala — medveten, lugn */
-h1 {
-  font-size: clamp(2rem, 5.5vw, 2.75rem);
-  line-height: 1.15;
-  letter-spacing: -0.015em;
-  margin: 0 0 1.25rem;
-  text-wrap: balance;
-}
-
-h2 {
-  font-size: clamp(1.35rem, 3vw, 1.625rem);
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  margin: 0 0 1rem;
-  text-wrap: balance;
-}
-
-/* Litet accentstreck markerar varje avsnitt — samma formspråk som hjälten */
-h2::before {
-  content: "";
-  display: block;
-  width: 2.25rem;
-  height: 3px;
-  border-radius: 1.5px;
-  background: var(--accent);
-  margin-bottom: 0.9rem;
-}
-
-h3 {
-  font-size: 1.125rem;
-  line-height: 1.35;
-  margin: 0 0 0.35rem;
-}
-
-p {
-  margin: 0 0 1rem;
-}
-
-a {
-  color: var(--accent);
-  text-underline-offset: 0.15em;
-}
-
-a:hover,
-a:focus {
-  color: var(--accent-dark);
-}
-
-/* Hjältesektion */
-.hero {
-  margin-top: 4rem;
-}
-
-.hero::before {
-  content: "";
-  display: block;
-  width: 2.25rem;
-  height: 3px;
-  border-radius: 1.5px;
-  background: var(--accent);
-  margin-bottom: 1.5rem;
-}
-
-.lead {
-  font-size: clamp(1.125rem, 2.2vw, 1.25rem);
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-background-tertiary);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   line-height: 1.6;
-  color: var(--text-muted);
-  max-width: 36rem;
 }
 
-.hero-cta {
-  margin-top: 1.75rem;
+.skip-link { position: absolute; left: -9999px; top: 0; z-index: 20; background: var(--color-accent); color: var(--color-on-accent); padding: 10px 16px; border-radius: 0 0 var(--border-radius-md) 0; }
+.skip-link:focus { left: 0; }
+
+h1, h2, h3 { font-weight: 500; margin: 0; letter-spacing: -.01em; }
+p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+.maillink { text-decoration: underline; text-underline-offset: 2px; }
+input { font-family: inherit; }
+
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+.btn {
+  font-size: 14px; font-weight: 500; padding: 11px 20px;
+  border-radius: var(--border-radius-md); border: none;
+  background: var(--color-accent); color: var(--color-on-accent);
+  cursor: pointer; display: inline-flex; align-items: center; gap: 7px;
+}
+.btn.ghost { background: transparent; border: .5px solid var(--color-border-secondary); color: var(--color-text-primary); }
+.eyebrow { font-size: 12px; font-weight: 500; letter-spacing: .06em; color: var(--color-text-secondary); }
+.card { background: var(--color-background-primary); border: .5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 22px; }
+.av { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; }
+
+header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--color-background-tertiary) 88%, transparent); border-bottom: .5px solid var(--color-border-tertiary); }
+.nav { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+.nav .links { display: flex; gap: 24px; font-size: 14px; color: var(--color-text-secondary); }
+.brand { display: flex; align-items: center; gap: 9px; font-weight: 500; font-size: 15px; }
+.brand .mark { width: 28px; height: 28px; border-radius: 8px; background: var(--color-accent); color: #fff; display: flex; align-items: center; justify-content: center; }
+
+section { padding: 60px 0; }
+.hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 36px; align-items: center; padding: 64px 0 52px; }
+.hero h1 { font-size: 34px; line-height: 1.12; margin: 14px 0; }
+.hero p.sub { font-size: 16px; color: var(--color-text-secondary); margin-bottom: 24px; max-width: 30em; }
+.hero .cta { display: flex; gap: 10px; margin-bottom: 22px; }
+.trustmini { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--color-text-secondary); }
+.trustmini span { display: flex; align-items: center; gap: 6px; }
+.window { border: .5px solid var(--color-border-secondary); border-radius: var(--border-radius-lg); overflow: hidden; background: var(--color-background-primary); }
+.window .bar { height: 30px; border-bottom: .5px solid var(--color-border-tertiary); display: flex; align-items: center; gap: 6px; padding: 0 11px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-border-secondary); }
+
+.sechead { text-align: center; max-width: 34em; margin: 0 auto 36px; }
+.sechead h2 { font-size: 26px; margin-bottom: 8px; }
+.sechead p { font-size: 15px; color: var(--color-text-secondary); }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.step .n { width: 34px; height: 34px; border-radius: var(--border-radius-md); background: var(--color-background-info); color: var(--color-text-info); display: flex; align-items: center; justify-content: center; font-size: 16px; margin-bottom: 14px; }
+.step h3 { font-size: 16px; margin-bottom: 6px; }
+.step p { font-size: 14px; color: var(--color-text-secondary); }
+
+.band { background: var(--color-background-secondary); border-radius: var(--border-radius-xl); padding: 34px 28px; }
+.band .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.band .item { display: flex; flex-direction: column; gap: 8px; }
+.band .item i { font-size: 24px; color: var(--color-text-success); }
+.band .item h3 { font-size: 14px; }
+.band .item p { font-size: 13px; color: var(--color-text-secondary); }
+
+/* Device showcase — real kit components (kit/desktop, kit/tablet, kit/mobile)
+   inlined in index.html; they keep their pixel-tuned widths and scroll sideways
+   inside their frame on viewports narrower than the component itself. */
+.devs { display: flex; align-items: flex-end; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.dev { margin: 0; max-width: 100%; min-width: 0; }
+.dev .appwrap { max-width: 100%; overflow-x: auto; }
+.devs .app { max-width: none !important; }
+.devcap { font-size: 13px; color: var(--color-text-secondary); text-align: center; margin-top: 9px; }
+
+.finalcta { text-align: center; background: var(--color-background-secondary); border-radius: var(--border-radius-xl); padding: 48px 24px; }
+.finalcta h2 { font-size: 26px; margin-bottom: 10px; }
+.finalcta p { font-size: 15px; color: var(--color-text-secondary); margin-bottom: 22px; }
+.finalcta .mail { font-size: 13.5px; margin: 16px 0 0; }
+
+footer { border-top: .5px solid var(--color-border-tertiary); padding: 28px 0; font-size: 13px; color: var(--color-text-secondary); }
+footer .row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+
+/* Reveal-on-scroll. Page sections use .r; the embedded kit components use the
+   kit's .app/.reveal pattern with a stagger. Without JS (no .js on <html>)
+   everything is visible. */
+.js .r { opacity: 0; transform: translateY(12px); }
+.js .r.in { animation: rise .6s cubic-bezier(.2, .7, .2, 1) forwards; }
+@keyframes rise { to { opacity: 1; transform: none; } }
+
+.app { flex: 0 0 auto; }
+.js .app .reveal { opacity: 0; transform: translateY(10px); }
+.js .app.in .reveal {
+  animation: ve-rise 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes ve-rise { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .r, .js .app .reveal { opacity: 1 !important; transform: none !important; animation: none !important; }
 }
 
-.button {
-  display: inline-block;
-  background: var(--accent);
-  color: #fff;
-  text-decoration: none;
-  padding: 0.7rem 1.5rem;
-  border-radius: var(--radius);
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  transition: background-color 120ms ease;
-}
-
-.button:hover,
-.button:focus {
-  background: var(--accent-dark);
-  color: #fff;
-}
-
-.button:active {
-  background: #062c4d;
-}
-
-/* Tonade band ger sidan rytm utan att bryta spalten.
-   Tekniken (skugga + clip-path) målar bakgrunden ut till fönsterkanten;
-   utan stöd faller den tillbaka till vit bakgrund — inget går sönder. */
-.band {
-  padding: 3rem 0 3.25rem;
-  margin-top: 4.5rem;
-}
-
-@supports (clip-path: inset(0 -100vmax)) {
-  .band {
-    background: var(--bg-alt);
-    box-shadow: 0 0 0 100vmax var(--bg-alt);
-    clip-path: inset(0 -100vmax);
-  }
-}
-
-/* Principlistan — numrerade punkter med tydlig markering */
-.principle {
-  list-style: none;
-  counter-reset: princip;
-  padding: 0;
-  margin: 1.25rem 0;
-}
-
-.principle li {
-  counter-increment: princip;
-  position: relative;
-  padding-left: 2.9rem;
-  margin-bottom: 1.1rem;
-}
-
-.principle li::before {
-  content: counter(princip);
-  position: absolute;
-  left: 0;
-  top: 0.05em;
-  width: 1.9rem;
-  height: 1.9rem;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  display: grid;
-  place-items: center;
-}
-
-/* Arbetssättets steg — kort med accentkant */
-.steps {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0 0;
-}
-
-.steps li {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 1px 2px rgba(26, 31, 41, 0.04);
-}
-
-.steps p {
-  margin: 0;
-}
-
-/* Punktlistor i löptext */
-ul li {
-  margin-bottom: 0.85rem;
-}
-
-main ul li::marker {
-  color: var(--accent);
-}
-
-/* Kontakt */
-.contact-email {
-  font-size: 1.35rem;
-  font-weight: 600;
-  word-break: break-word;
-  margin-top: 1.25rem;
-}
-
-.contact-email a {
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 0.2em;
-}
-
-/* Sidfot — avslutande band */
-.site-footer {
-  margin-top: 4.5rem;
-  border-top: 1px solid var(--border);
-  background: var(--bg-alt);
-}
-
-.site-footer p {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1.75rem 1.25rem;
-  color: var(--text-muted);
-  font-size: 0.9375rem;
-}
-
-.site-footer a {
-  color: var(--text-muted);
-}
-
-.site-footer a:hover,
-.site-footer a:focus {
-  color: var(--accent);
-}
-
-/* Små skärmar */
-@media (max-width: 600px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.6rem;
-    padding: 1rem 1.25rem;
-  }
-
-  .site-header nav ul {
-    gap: 0.3rem 1rem;
-  }
-
-  .hero {
-    margin-top: 2.75rem;
-  }
-
-  section {
-    margin-top: 3.25rem;
-  }
-
-  .band {
-    padding: 2.25rem 0 2.5rem;
-    margin-top: 3.25rem;
-  }
-
-  .steps li {
-    padding: 1.1rem 1.2rem;
-  }
-
-  .site-footer {
-    margin-top: 3.25rem;
-  }
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding: 40px 0; }
+  .hero h1 { font-size: 28px; }
+  .grid3, .band .grid4 { grid-template-columns: 1fr; }
+  .nav .links { display: none; }
+  section { padding: 44px 0; }
 }

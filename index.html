@@ -1,144 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jakup Güven AB — AI-automation för svenska småföretag</title>
-  <meta name="description" content="Jakup Güven AB bygger smala AI-agenter som automatiserar återkommande administration för svenska småföretag — ovanpå verktygen du redan använder, med människan som beslutsfattare.">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jakup Güven AB — virtuella medarbetare för svenska småföretag</title>
+<meta name="description" content="Jakup Güven AB bygger virtuella medarbetare för svenska småföretag. Vera tar bokningarna, Emil sköter fakturorna — kopplat till Fortnox, och du godkänner allt.">
+<link rel="stylesheet" href="assets/fonts/inter.css">
+<link rel="stylesheet" href="assets/icons/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#huvudinnehall">Hoppa till innehållet</a>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <p class="site-name">Jakup Güven AB</p>
-      <nav aria-label="Huvudmeny">
-        <ul>
-          <li><a href="#vad-jag-gor">Vad jag gör</a></li>
-          <li><a href="#manniskan-bestammer">Arbetssätt</a></li>
-          <li><a href="#sa-arbetar-jag">Så arbetar jag</a></li>
-          <li><a href="#om">Om</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
-      </nav>
+<a class="skip-link" href="#huvudinnehall">Hoppa till innehållet</a>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand"><span class="mark"><i class="ti ti-users" aria-hidden="true"></i></span> Jakup Güven AB</div>
+    <nav class="links" aria-label="Huvudmeny"><a href="#sa-funkar">Så funkar det</a><a href="#teamet">Teamet</a><a href="#kontakt">Kontakt</a></nav>
+    <a class="btn ghost" href="mailto:info@jakupguven.se?subject=Boka%20demo">Boka demo</a>
+  </div>
+</header>
+
+<main class="wrap" id="huvudinnehall">
+
+  <section class="hero">
+    <div class="r">
+      <p class="eyebrow">FÖR SVENSKA SMÅFÖRETAG</p>
+      <h1>Anställ din första digitala medarbetare</h1>
+      <p class="sub">Vera tar bokningarna, Emil sköter fakturorna. Du godkänner — de gör jobbet. Kopplat till Fortnox, din kalender och ditt telefonnummer.</p>
+      <div class="cta"><a class="btn" href="#teamet">Möt ditt team</a><a class="btn ghost" href="mailto:info@jakupguven.se?subject=Boka%20demo">Boka demo</a></div>
+      <div class="trustmini">
+        <span><i class="ti ti-receipt-2" style="color:var(--color-text-success)" aria-hidden="true"></i> Fortnox</span>
+        <span><i class="ti ti-discount" style="color:var(--color-text-success)" aria-hidden="true"></i> ROT/RUT</span>
+        <span><i class="ti ti-headset" style="color:var(--color-text-success)" aria-hidden="true"></i> Svensk support</span>
+      </div>
     </div>
-  </header>
+    <div class="window r" aria-hidden="true">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div style="padding:14px">
+        <div style="display:flex;gap:8px;margin-bottom:14px;align-items:center">
+          <div class="av" style="background:var(--color-background-info);color:var(--color-text-info)">V</div>
+          <div class="av" style="background:var(--color-background-success);color:var(--color-text-success)">E</div>
+          <div class="av" style="background:var(--color-background-warning);color:var(--color-text-warning)">S</div>
+          <div style="flex:1;text-align:right;font-size:11px;color:var(--color-text-tertiary)">ditt team</div>
+        </div>
+        <p style="font-size:10.5px;font-weight:500;letter-spacing:.03em;color:var(--color-text-secondary);margin-bottom:9px">BEHÖVER DITT OK</p>
+        <div style="border:.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:11px 12px">
+          <p style="font-size:12px;line-height:1.5;margin-bottom:9px">Anders P. · krossad ruta, vill ha tid denna vecka.</p>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:9px 10px;margin-bottom:10px">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px"><i class="ti ti-calendar-event" style="font-size:14px;color:var(--color-text-info)" aria-hidden="true"></i><span style="font-size:11.5px">Tors 12 juni 09:00</span></div>
+            <div style="display:flex;align-items:center;gap:6px"><i class="ti ti-file-invoice" style="font-size:14px;color:var(--color-text-info)" aria-hidden="true"></i><span style="font-size:11.5px">Offert 1 850 kr · ROT</span></div>
+          </div>
+          <div style="display:flex;gap:7px">
+            <button tabindex="-1" class="btn" style="flex:1;justify-content:center;padding:8px 0;font-size:12px">Godkänn</button>
+            <button tabindex="-1" class="btn ghost" style="padding:8px 13px;font-size:12px">Ändra</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <main id="huvudinnehall">
-    <section class="hero">
-      <h1>AI-agenter som sköter pappersarbetet.<br>Du behåller besluten.</h1>
-      <p class="lead">
-        Jakup Güven AB bygger smala, specialiserade AI-agenter som automatiserar
-        återkommande administration för svenska småföretag — bokföring, kvitton,
-        fakturor — ovanpå de verktyg du redan använder.
-      </p>
-      <p class="hero-cta">
-        <a class="button" href="#kontakt">Skicka ett mejl</a>
-      </p>
-    </section>
+  <section id="sa-funkar">
+    <div class="sechead r"><h2>Så funkar det</h2><p>Ingen uppsättning, inga flödesscheman. Du får ett team och bestämmer vad de får göra.</p></div>
+    <div class="grid3">
+      <div class="card step r"><div class="n"><i class="ti ti-users" aria-hidden="true"></i></div><h3>Möt ditt team</h3><p>Vera och Emil är redo från dag ett — anpassade efter din verksamhet.</p></div>
+      <div class="card step r"><div class="n"><i class="ti ti-school" aria-hidden="true"></i></div><h3>Lär dem mer i akademin</h3><p>Skicka dem på kurs när du vill. Nya färdigheter, samma trygga upplägg.</p></div>
+      <div class="card step r"><div class="n"><i class="ti ti-checks" aria-hidden="true"></i></div><h3>Du godkänner, de gör jobbet</h3><p>Inget når en kund eller rör pengar utan ditt ok. Resten sköter de själva.</p></div>
+    </div>
+  </section>
 
-    <section id="manniskan-bestammer" class="band">
-      <h2>Människan bestämmer — alltid</h2>
-      <p>
-        Jag bygger inte AI som agerar på egen hand. Varje agent följer samma princip:
-      </p>
-      <ol class="principle" role="list">
-        <li><strong>AI:n föreslår.</strong> Agenten gör grovjobbet och tar fram ett förslag — en kontering, ett fakturaunderlag, en sammanställning.</li>
-        <li><strong>Deterministiska kontroller validerar.</strong> Fasta, förutsägbara regler granskar förslaget innan det når dig. Stämmer inte siffrorna stoppas det.</li>
-        <li><strong>Du godkänner.</strong> Ingenting skickas, bokförs eller registreras utan ett mänskligt beslut.</li>
-      </ol>
-      <p>
-        Det betyder att du får automatiseringens hastighet utan att lämna ifrån dig
-        kontrollen över din bokföring och dina kundrelationer.
-      </p>
-    </section>
+  <section id="teamet">
+    <div class="sechead r"><h2>Lär känna teamet</h2><p>Riktiga ansvarsområden, inte en låda med funktioner.</p></div>
+    <div class="grid3">
+      <div class="card r"><div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><div class="av" style="width:40px;height:40px;background:var(--color-background-info);color:var(--color-text-info);font-size:15px">V</div><div><h3 style="font-size:15px">Vera</h3><p style="font-size:13px;color:var(--color-text-secondary)">Reception</p></div></div><p style="font-size:13.5px;color:var(--color-text-secondary)">Tar emot förfrågningar, bokar in jobb och förbereder offerter med rätt ROT/RUT.</p></div>
+      <div class="card r"><div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><div class="av" style="width:40px;height:40px;background:var(--color-background-success);color:var(--color-text-success);font-size:15px">E</div><div><h3 style="font-size:15px">Emil</h3><p style="font-size:13px;color:var(--color-text-secondary)">Ekonomi</p></div></div><p style="font-size:13.5px;color:var(--color-text-secondary)">Bevakar fakturor, skickar vänliga påminnelser och stämmer av mot Fortnox.</p></div>
+      <div class="card r"><div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><div class="av" style="width:40px;height:40px;background:var(--color-background-warning);color:var(--color-text-warning);font-size:15px">S</div><div><h3 style="font-size:15px">Siv</h3><p style="font-size:13px;color:var(--color-text-secondary)">Inköp &amp; material</p></div></div><p style="font-size:13.5px;color:var(--color-text-secondary)">Håller koll på lagret och förbereder beställningar hos dina leverantörer.</p></div>
+    </div>
+  </section>
 
-    <section id="vad-jag-gor">
-      <h2>Vad jag gör</h2>
-      <p>
-        Jag bygger <strong>vertikala AI-agenter</strong> — inte generella chattbottar.
-        Varje agent gör en sak, gör den väl, och är byggd kring hur just ditt
-        företag arbetar.
-      </p>
-      <ul>
-        <li>
-          <strong>Ovanpå dina befintliga verktyg.</strong> Agenterna arbetar i de
-          system du redan har — Fortnox först, fler svenska integrationer på väg.
-          Ingenting ersätts; det är handpåläggningen som försvinner.
-        </li>
-        <li>
-          <strong>Återkommande administration.</strong> Kvittohantering,
-          fakturaunderlag, bokföringsförberedelser — det som äter kvällar och
-          helger utan att utveckla verksamheten.
-        </li>
-        <li>
-          <strong>Svenska förhållanden.</strong> Svenska bokföringsregler gjorda
-          rätt, svenska verktyg, och ett litet Malmöföretag där du pratar
-          direkt med den som bygger.
-        </li>
-      </ul>
-    </section>
+  <section>
+    <div class="sechead r"><h2>Funkar på kontoret och i fickan</h2><p>Samma team, samma godkännanden — på datorn, plattan och mobilen.</p></div>
+    <div class="devs r">
+      <figure class="dev">
+        <div class="appwrap" aria-hidden="true">
+<div class="app" style="border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-lg);overflow:hidden;background:var(--color-background-primary);width:720px;max-width:100%;"><div style="height:40px;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;justify-content:space-between;padding:0 14px;"><span style="font-size:13px;font-weight:500;">Glasmästeri Svensson AB</span><div style="width:26px;height:26px;border-radius:50%;background:var(--color-background-secondary);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--color-text-secondary);">JG</div></div><div style="display:flex;min-height:430px;"><div style="width:158px;background:var(--color-background-secondary);border-right:0.5px solid var(--color-border-tertiary);padding:12px 10px;display:flex;flex-direction:column;"><p style="margin:0 0 10px;font-size:10.5px;font-weight:500;letter-spacing:0.04em;color:var(--color-text-tertiary);">DITT TEAM</p><div style="display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:var(--border-radius-md);background:var(--color-background-info);margin-bottom:3px;"><div style="width:28px;height:28px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--color-text-info);">V</div><div style="line-height:1.25;"><p style="margin:0;font-size:12.5px;font-weight:500;color:var(--color-text-info);">Vera</p><p style="margin:0;font-size:10.5px;color:var(--color-text-info);">Reception</p></div></div><div style="display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:var(--border-radius-md);margin-bottom:3px;"><div style="width:28px;height:28px;border-radius:50%;background:var(--color-background-success);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--color-text-success);">E</div><div style="line-height:1.25;"><p style="margin:0;font-size:12.5px;font-weight:500;">Emil</p><p style="margin:0;font-size:10.5px;color:var(--color-text-secondary);">Ekonomi</p></div></div><div style="display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:var(--border-radius-md);margin-bottom:3px;"><div style="width:28px;height:28px;border-radius:50%;background:var(--color-background-warning);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--color-text-warning);">S</div><div style="line-height:1.25;"><p style="margin:0;font-size:12.5px;font-weight:500;">Siv</p><p style="margin:0;font-size:10.5px;color:var(--color-text-secondary);">Inköp & material</p></div></div><div style="display:flex;align-items:center;gap:8px;padding:7px 8px;color:var(--color-text-tertiary);"><span style="width:28px;height:28px;border-radius:50%;border:0.5px dashed var(--color-border-secondary);display:flex;align-items:center;justify-content:center;"><i class="ti ti-plus" style="font-size:15px;" aria-hidden="true"></i></span><span style="font-size:12px;">Lägg till</span></div><div style="margin-top:auto;padding-top:10px;border-top:0.5px solid var(--color-border-tertiary);display:flex;gap:14px;"><i class="ti ti-layout-grid" style="font-size:18px;color:var(--color-text-tertiary);" aria-label="översikt"></i><i class="ti ti-school" style="font-size:18px;color:var(--color-text-tertiary);" aria-label="akademin"></i><i class="ti ti-settings" style="font-size:18px;color:var(--color-text-tertiary);" aria-label="inställningar"></i></div></div><div style="flex:1;display:flex;flex-direction:column;min-width:0;"><div style="padding:11px 14px;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:var(--color-background-info);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--color-text-info);">V</div><div style="line-height:1.3;flex:1;"><p style="margin:0;font-size:13.5px;font-weight:500;">Vera · Reception</p><p style="margin:0;font-size:11.5px;color:var(--color-text-secondary);">bokningar, kundsvar, offerter</p></div><button tabindex="-1" style="font-size:12.5px;padding:5px 11px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;cursor:pointer;">Personalisera</button></div><div style="padding:11px 14px 0;display:flex;gap:7px;flex-wrap:wrap;"><button tabindex="-1" style="display:flex;align-items:center;gap:6px;font-size:11.5px;padding:6px 10px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;cursor:pointer;"><i class="ti ti-calendar-plus" style="font-size:15px;color:var(--color-text-info);" aria-hidden="true"></i>Ny bokning</button><button tabindex="-1" style="display:flex;align-items:center;gap:6px;font-size:11.5px;padding:6px 10px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;cursor:pointer;"><i class="ti ti-file-invoice" style="font-size:15px;color:var(--color-text-info);" aria-hidden="true"></i>Offert</button><button tabindex="-1" style="display:flex;align-items:center;gap:6px;font-size:11.5px;padding:6px 10px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;cursor:pointer;"><i class="ti ti-message-2" style="font-size:15px;color:var(--color-text-info);" aria-hidden="true"></i>Svara kund</button><button tabindex="-1" style="display:flex;align-items:center;gap:6px;font-size:11.5px;padding:6px 10px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;cursor:pointer;"><i class="ti ti-chart-bar" style="font-size:15px;color:var(--color-text-info);" aria-hidden="true"></i>Rapport</button></div><div style="flex:1;padding:13px 14px;display:flex;flex-direction:column;gap:10px;"><div class="reveal" style="align-self:flex-end;max-width:78%;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:9px 11px;"><div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-microphone" style="font-size:14px;color:var(--color-text-info);" aria-hidden="true"></i><span style="display:flex;align-items:flex-end;gap:2px;height:14px;"><span style="width:2px;height:6px;background:var(--color-text-info);"></span><span style="width:2px;height:12px;background:var(--color-text-info);"></span><span style="width:2px;height:8px;background:var(--color-text-info);"></span><span style="width:2px;height:13px;background:var(--color-text-info);"></span><span style="width:2px;height:7px;background:var(--color-text-info);"></span></span><span style="font-size:11px;color:var(--color-text-secondary);">0:09</span></div><p style="margin:5px 0 0;font-size:12px;font-style:italic;color:var(--color-text-secondary);">"Boka Anders torsdag och förbered offert."</p></div><div class="reveal" style="align-self:flex-start;max-width:82%;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:9px 11px;"><p style="margin:0;font-size:12.5px;line-height:1.5;">Klart — <b style="font-weight:500;">tors 12 juni 09:00</b> inlagt, offert <b style="font-weight:500;">1 850 kr</b> med ROT klar. Godkänna innan jag svarar Anders?</p><div style="display:flex;gap:7px;margin-top:9px;"><button tabindex="-1" style="font-size:12.5px;font-weight:500;padding:5px 11px;border:none;border-radius:var(--border-radius-md);background:var(--color-accent);color:var(--color-on-accent);cursor:pointer;">Godkänn</button><button tabindex="-1" style="font-size:12.5px;padding:5px 11px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;cursor:pointer;">Visa utkast</button></div></div></div><div style="padding:10px 12px;border-top:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;gap:8px;"><input tabindex="-1" type="text" placeholder="Fråga Vera…" style="flex:1;height:34px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:0 11px;font-size:12.5px;background:var(--color-background-primary);color:var(--color-text-primary);" /><i class="ti ti-microphone" style="font-size:18px;color:var(--color-text-info);cursor:pointer;" aria-label="röst"></i><button tabindex="-1" style="height:34px;width:34px;border:none;border-radius:var(--border-radius-md);background:var(--color-accent);color:var(--color-on-accent);cursor:pointer;display:flex;align-items:center;justify-content:center;"><i class="ti ti-arrow-up" style="font-size:17px;" aria-hidden="true"></i></button></div></div><div style="width:176px;border-left:0.5px solid var(--color-border-tertiary);padding:12px 11px;"><p style="margin:0 0 9px;font-size:10.5px;font-weight:500;letter-spacing:0.04em;color:var(--color-text-tertiary);">BEHÖVER DITT OK · 1</p><div class="reveal" style="border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:9px 10px;margin-bottom:16px;"><p style="margin:0 0 3px;font-size:11.5px;font-weight:500;">Offert · Anders P.</p><p style="margin:0 0 8px;font-size:11px;color:var(--color-text-secondary);">1 850 kr · ROT</p><button tabindex="-1" style="width:100%;font-size:13px;font-weight:500;padding:6px 0;border:none;border-radius:var(--border-radius-md);background:var(--color-accent);color:var(--color-on-accent);cursor:pointer;">Godkänn</button></div><p style="margin:0 0 9px;font-size:10.5px;font-weight:500;letter-spacing:0.04em;color:var(--color-text-tertiary);">VERAS ANSVAR</p><div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px;"><span style="font-size:11px;padding:3px 8px;background:var(--color-background-info);color:var(--color-text-info);border-radius:var(--border-radius-md);">Bokningar</span><span style="font-size:11px;padding:3px 8px;background:var(--color-background-info);color:var(--color-text-info);border-radius:var(--border-radius-md);">Kundsvar</span><span style="font-size:11px;padding:3px 8px;background:var(--color-background-info);color:var(--color-text-info);border-radius:var(--border-radius-md);">Offerter</span></div><div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:9px 10px;"><p style="margin:0;font-size:10.5px;color:var(--color-text-secondary);">Bokningar / vecka</p><p style="margin:2px 0 0;font-size:18px;font-weight:500;">12</p></div></div></div></div>
+        </div>
+        <figcaption class="devcap">Desktop</figcaption>
+      </figure>
+      <figure class="dev">
+        <div class="appwrap" aria-hidden="true">
+<div class="app" style="border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-xl);overflow:hidden;background:var(--color-background-primary);width:620px;max-width:100%;"><div style="height:40px;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;justify-content:space-between;padding:0 14px;"><span style="font-size:13px;font-weight:500;">Glasmästeri Svensson AB</span><div style="width:26px;height:26px;border-radius:50%;background:var(--color-background-secondary);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--color-text-secondary);">JG</div></div><div style="display:flex;min-height:452px;"><div style="width:172px;background:var(--color-background-secondary);border-right:0.5px solid var(--color-border-tertiary);padding:12px 10px;display:flex;flex-direction:column;"><p style="margin:0 0 10px;font-size:10.5px;font-weight:500;letter-spacing:0.04em;color:var(--color-text-tertiary);">DITT TEAM</p><div style="display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:var(--border-radius-md);margin-bottom:3px;"><div style="width:28px;height:28px;border-radius:50%;background:var(--color-background-info);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--color-text-info);">V</div><div style="line-height:1.25;"><p style="margin:0;font-size:12.5px;font-weight:500;">Vera</p><p style="margin:0;font-size:10.5px;color:var(--color-text-secondary);">Reception</p></div></div><div style="display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:var(--border-radius-md);background:var(--color-background-success);margin-bottom:3px;"><div style="width:28px;height:28px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--color-text-success);">E</div><div style="line-height:1.25;"><p style="margin:0;font-size:12.5px;font-weight:500;color:var(--color-text-success);">Emil</p><p style="margin:0;font-size:10.5px;color:var(--color-text-success);">Ekonomi</p></div></div><div style="display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:var(--border-radius-md);margin-bottom:3px;"><div style="width:28px;height:28px;border-radius:50%;background:var(--color-background-warning);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--color-text-warning);">S</div><div style="line-height:1.25;"><p style="margin:0;font-size:12.5px;font-weight:500;">Siv</p><p style="margin:0;font-size:10.5px;color:var(--color-text-secondary);">Inköp & material</p></div></div><div style="display:flex;align-items:center;gap:8px;padding:7px 8px;color:var(--color-text-tertiary);"><span style="width:28px;height:28px;border-radius:50%;border:0.5px dashed var(--color-border-secondary);display:flex;align-items:center;justify-content:center;"><i class="ti ti-plus" style="font-size:15px;" aria-hidden="true"></i></span><span style="font-size:12px;">Lägg till</span></div><div style="margin-top:auto;padding-top:10px;border-top:0.5px solid var(--color-border-tertiary);display:flex;gap:14px;"><i class="ti ti-layout-grid" style="font-size:18px;color:var(--color-text-tertiary);" aria-label="översikt"></i><i class="ti ti-school" style="font-size:18px;color:var(--color-text-tertiary);" aria-label="akademin"></i><i class="ti ti-settings" style="font-size:18px;color:var(--color-text-tertiary);" aria-label="inställningar"></i></div></div><div style="flex:1;display:flex;flex-direction:column;min-width:0;"><div style="padding:11px 14px;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:var(--color-background-success);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--color-text-success);">E</div><div style="line-height:1.3;flex:1;"><p style="margin:0;font-size:13.5px;font-weight:500;">Emil · Ekonomi</p><p style="margin:0;font-size:11.5px;color:var(--color-text-secondary);">fakturor, påminnelser, avstämning</p></div><span style="display:flex;align-items:center;gap:5px;font-size:11px;padding:4px 9px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);color:var(--color-text-secondary);"><i class="ti ti-plug-connected" style="font-size:14px;color:var(--color-text-success);" aria-hidden="true"></i>Fortnox</span></div><div class="reveal" style="border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-lg);padding:12px 14px;margin:14px 16px 0;"><p style="margin:0 0 3px;font-size:10.5px;font-weight:500;letter-spacing:0.03em;color:var(--color-text-secondary);">UTESTÅENDE</p><p style="margin:0;font-size:12.5px;">15 600 kr · 2 fakturor bevakas · allt som rör pengar väntar på ditt ok</p></div><div style="padding:13px 16px;flex:1;"><p style="margin:0 0 9px;font-size:10.5px;font-weight:500;letter-spacing:0.04em;color:var(--color-text-tertiary);">FAKTUROR ATT BEVAKA</p><div class="reveal" style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:0.5px solid var(--color-border-tertiary);"><div style="flex:1;min-width:0;"><p style="margin:0;font-size:12.5px;font-weight:500;">Brf Solrosen</p><p style="margin:0;font-size:11px;color:var(--color-text-secondary);">Faktura #1038 · 9 dagar sen</p></div><span style="font-size:12.5px;font-weight:500;">12 400 kr</span><span style="font-size:10.5px;padding:3px 8px;background:var(--color-background-danger);color:var(--color-text-danger);border-radius:var(--border-radius-md);">Förfallen</span></div><div class="reveal" style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:0.5px solid var(--color-border-tertiary);"><div style="flex:1;min-width:0;"><p style="margin:0;font-size:12.5px;font-weight:500;">Café Lund</p><p style="margin:0;font-size:11px;color:var(--color-text-secondary);">Faktura #1041 · påminnelse skickad</p></div><span style="font-size:12.5px;font-weight:500;">3 200 kr</span><span style="font-size:10.5px;padding:3px 8px;background:var(--color-background-warning);color:var(--color-text-warning);border-radius:var(--border-radius-md);">Bevakas</span></div><div class="reveal" style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:0.5px solid var(--color-border-tertiary);"><div style="flex:1;min-width:0;"><p style="margin:0;font-size:12.5px;font-weight:500;">Anders P.</p><p style="margin:0;font-size:11px;color:var(--color-text-secondary);">Faktura #1042 · bokförd</p></div><span style="font-size:12.5px;font-weight:500;">1 850 kr</span><span style="font-size:10.5px;padding:3px 8px;background:var(--color-background-success);color:var(--color-text-success);border-radius:var(--border-radius-md);">Betald</span></div><div class="reveal" style="margin-top:14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:11px 12px;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;"><i class="ti ti-bell-ringing" style="font-size:16px;color:var(--color-text-info);" aria-hidden="true"></i><span style="font-size:12.5px;">Emil vill skicka en vänlig påminnelse till <b style="font-weight:500;">Brf Solrosen</b></span></div><p style="margin:0 0 9px;font-size:11.5px;color:var(--color-text-secondary);line-height:1.5;">Andra påminnelsen · ton: vänlig men tydlig · via e-post</p><div style="display:flex;gap:7px;"><button tabindex="-1" style="font-size:12.5px;font-weight:500;padding:5px 11px;border:none;border-radius:var(--border-radius-md);background:var(--color-accent);color:var(--color-on-accent);cursor:pointer;">Godkänn & skicka</button><button tabindex="-1" style="font-size:12.5px;padding:5px 11px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;cursor:pointer;">Läs utkast</button></div></div></div><div style="padding:10px 12px;border-top:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;gap:8px;"><input tabindex="-1" type="text" placeholder="Fråga Emil…" style="flex:1;height:34px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:0 11px;font-size:12.5px;background:var(--color-background-primary);color:var(--color-text-primary);" /><i class="ti ti-microphone" style="font-size:18px;color:var(--color-text-info);cursor:pointer;" aria-label="röst"></i><button tabindex="-1" style="height:34px;width:34px;border:none;border-radius:var(--border-radius-md);background:var(--color-accent);color:var(--color-on-accent);cursor:pointer;display:flex;align-items:center;justify-content:center;"><i class="ti ti-arrow-up" style="font-size:17px;" aria-hidden="true"></i></button></div></div></div></div>
+        </div>
+        <figcaption class="devcap">Surfplatta</figcaption>
+      </figure>
+      <figure class="dev">
+        <div class="appwrap" aria-hidden="true">
+<div class="app" style="width:320px;max-width:100%;background:var(--color-background-primary);border:0.5px solid var(--color-border-secondary);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;"><div style="padding:16px 16px 10px;display:flex;align-items:center;justify-content:space-between;"><p style="margin:0;font-size:17px;font-weight:500;">Ditt team</p><div style="width:28px;height:28px;border-radius:50%;background:var(--color-background-secondary);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--color-text-secondary);">JG</div></div><div class="reveal" style="margin:4px 14px 14px;display:flex;align-items:center;gap:10px;background:var(--color-background-info);border-radius:var(--border-radius-lg);padding:11px 13px;cursor:pointer;"><i class="ti ti-checklist" style="font-size:19px;color:var(--color-text-info);" aria-hidden="true"></i><span style="flex:1;font-size:12.5px;color:var(--color-text-info);font-weight:500;">3 saker väntar på ditt ok</span><i class="ti ti-chevron-right" style="font-size:17px;color:var(--color-text-info);" aria-hidden="true"></i></div><div style="padding:0 14px;flex:1;"><div class="reveal" style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:0.5px solid var(--color-border-tertiary);"><div style="width:38px;height:38px;border-radius:50%;background:var(--color-background-info);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--color-text-info);">V</div><div style="flex:1;line-height:1.35;"><p style="margin:0;font-size:13.5px;font-weight:500;">Vera</p><p style="margin:0;font-size:11.5px;color:var(--color-text-secondary);">Reception</p></div><span style="font-size:10.5px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--color-accent);color:var(--color-on-accent);display:flex;align-items:center;justify-content:center;">1</span></div><div class="reveal" style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:0.5px solid var(--color-border-tertiary);"><div style="width:38px;height:38px;border-radius:50%;background:var(--color-background-success);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--color-text-success);">E</div><div style="flex:1;line-height:1.35;"><p style="margin:0;font-size:13.5px;font-weight:500;">Emil</p><p style="margin:0;font-size:11.5px;color:var(--color-text-secondary);">Ekonomi</p></div><span style="font-size:10.5px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--color-accent);color:var(--color-on-accent);display:flex;align-items:center;justify-content:center;">2</span></div><div class="reveal" style="display:flex;align-items:center;gap:11px;padding:11px 0;"><div style="width:38px;height:38px;border-radius:50%;background:var(--color-background-warning);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--color-text-warning);">S</div><div style="flex:1;line-height:1.35;"><p style="margin:0;font-size:13.5px;font-weight:500;">Siv</p><p style="margin:0;font-size:11.5px;color:var(--color-text-secondary);">Inköp & material</p></div><span style="font-size:10.5px;padding:2px 8px;border-radius:var(--border-radius-md);background:var(--color-background-warning);color:var(--color-text-warning);">lär sig</span></div></div><div style="display:flex;border-top:0.5px solid var(--color-border-tertiary);"><div style="flex:1;padding:9px 0 11px;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--color-text-info);"><i class="ti ti-users" style="font-size:20px;" aria-hidden="true"></i><span style="font-size:10px;">Team</span></div><div style="flex:1;padding:9px 0 11px;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--color-text-tertiary);"><i class="ti ti-checklist" style="font-size:20px;" aria-hidden="true"></i><span style="font-size:10px;">Att göra</span></div><div style="flex:1;padding:9px 0 11px;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--color-text-tertiary);"><i class="ti ti-school" style="font-size:20px;" aria-hidden="true"></i><span style="font-size:10px;">Akademin</span></div><div style="flex:1;padding:9px 0 11px;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--color-text-tertiary);"><i class="ti ti-dots" style="font-size:20px;" aria-hidden="true"></i><span style="font-size:10px;">Mer</span></div></div></div>
+        </div>
+        <figcaption class="devcap">Mobil</figcaption>
+      </figure>
+    </div>
+  </section>
 
-    <section id="sa-arbetar-jag">
-      <h2>Så arbetar jag</h2>
-      <ol class="steps" role="list">
-        <li>
-          <h3>1. Genomlysning</h3>
-          <p>
-            Det börjar med en betald genomlysning av dina administrativa flöden:
-            vad som görs, hur ofta, och var automatisering faktiskt lönar sig.
-            Du får en konkret bild — även om du sedan väljer att inte gå vidare.
-          </p>
-        </li>
-        <li>
-          <h3>2. Bygge</h3>
-          <p>
-            Jag bygger agenten kring ditt flöde och dina verktyg, med kontrollerna
-            och godkännandestegen på plats från början. Du ser och testar den i
-            din egen vardag innan den tas i bruk.
-          </p>
-        </li>
-        <li>
-          <h3>3. Löpande förbättring</h3>
-          <p>
-            Verksamheter förändras, och agenten ska följa med. Jag driftar, följer
-            upp och vidareutvecklar löpande som en abonnemangstjänst.
-          </p>
-        </li>
-      </ol>
-    </section>
+  <section>
+    <div class="band r">
+      <div class="grid4">
+        <div class="item"><i class="ti ti-receipt-2" aria-hidden="true"></i><h3>Kopplat till Fortnox</h3><p>Fakturor och avstämning där du redan har din bokföring.</p></div>
+        <div class="item"><i class="ti ti-checks" aria-hidden="true"></i><h3>Du godkänner allt</h3><p>Inget når en kund eller rör pengar utan ditt ok.</p></div>
+        <div class="item"><i class="ti ti-discount" aria-hidden="true"></i><h3>ROT/RUT räknas rätt</h3><p>Avdragen hamnar rätt på offert och faktura.</p></div>
+        <div class="item"><i class="ti ti-map-pin" aria-hidden="true"></i><h3>Svensk support &amp; data i EU</h3><p>Hjälp på svenska, data lagrad inom EU.</p></div>
+      </div>
+    </div>
+  </section>
 
-    <section id="om" class="band">
-      <h2>Vem du pratar med</h2>
-      <p>
-        Jakup Güven AB är ett enmansbolag i Malmö. Bakom företaget står jag,
-        <strong>Jakup Güven</strong> — jag bygger agenterna, svarar på mejlen och
-        står för det som levereras. Du pratar alltså aldrig med en mellanhand:
-        den du beskriver din vardag för är samma person som bygger lösningen.
-      </p>
-      <p>
-        Jag tror på smala lösningar framför stora system, på förutsägbara
-        kontroller framför blind tillit till AI, och på att tekniken ska anpassa
-        sig till verksamheten — inte tvärtom.
-      </p>
-    </section>
+  <section id="kontakt">
+    <div class="finalcta r">
+      <h2>Redo att möta ditt team?</h2>
+      <p>Boka en kort demo så sätter vi upp Vera och Emil för din verksamhet.</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <a class="btn" href="mailto:info@jakupguven.se?subject=Boka%20demo">Boka demo</a>
+        <a class="btn ghost" href="#sa-funkar">Se hur det funkar</a>
+      </div>
+      <p class="mail">Eller mejla direkt: <a class="maillink" href="mailto:info@jakupguven.se">info@jakupguven.se</a></p>
+    </div>
+  </section>
 
-    <section id="kontakt">
-      <h2>Kontakt</h2>
-      <p>
-        Vill du veta vad som går att automatisera i din administration?
-        Skicka ett mejl och beskriv kort hur din vardag ser ut. Mejlet läses
-        och besvaras av mig personligen — ingen säljkedja, inga formulär.
-      </p>
-      <p class="contact-email">
-        <a href="mailto:info@jakupguven.se">info@jakupguven.se</a>
-      </p>
-    </section>
-  </main>
+</main>
 
-  <footer class="site-footer">
-    <p>© 2026 Jakup Güven AB · Malmö · <a href="mailto:info@jakupguven.se">info@jakupguven.se</a></p>
-  </footer>
+<footer>
+  <div class="wrap row">
+    <div class="brand" style="font-size:14px"><span class="mark" style="width:24px;height:24px;border-radius:7px"><i class="ti ti-users" style="font-size:14px" aria-hidden="true"></i></span> Jakup Güven AB</div>
+    <div><a class="maillink" href="mailto:info@jakupguven.se">info@jakupguven.se</a></div>
+    <div>© 2026 Jakup Güven AB · Org.nr 559582-8921</div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
 </body>
 </html>
