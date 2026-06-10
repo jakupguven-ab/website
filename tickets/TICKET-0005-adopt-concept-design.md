@@ -51,6 +51,11 @@ decisions, the decisions win.
       controls, sufficient contrast in both color schemes.
 - [ ] `tests:` field records what was actually checked (browser widths, dark mode,
       no-JS, link resolution, no external requests), honestly; `none` if nothing was.
+- [ ] **Deployed:** the reworked site is live at the GitHub Pages URL and the live
+      render is spot-checked. The push to origin is not the developer's to make — it
+      is performed by the owner, or by the strategist under the owner's explicit
+      2026-06-10 grant ("I want the website deployed … without having me in the
+      loop for these two tickets").
 
 ## Assumptions
 
