@@ -32,6 +32,10 @@ decisions, the decisions win.
       footer with real org.nr 559582-8921), contact **info@jakupguven.se** as visible
       text + mailto. "Virtuella medarbetare" may describe the concept in copy but is
       not the site's brand mark.
+- [ ] **Override 3 — no BankID claims:** every BankID mention is removed (the hero
+      trust-badge row and the "BankID-inloggning" item in the integrations band —
+      replace or drop the band cell so the grid still composes). Owner decision
+      2026-06-10 after strategist objection; the other capability claims stand as-is.
 - [ ] Device-showcase placeholder frames replaced with the real components from the
       kit (`desktop/`, `tablet/`, `mobile/`) per the developer note embedded in the
       concept page. The component kit is copied into this repo (it currently lives
@@ -50,9 +54,12 @@ decisions, the decisions win.
 
 ## Assumptions
 
-- The owner supplies the original concept HTML file on disk before work starts — the
-  in-conversation copy has text-encoding artifacts (mojibake) and must not be used as
-  the source. **Blocked on that file only**; the component kit is already usable.
+- Source files, both in a fragile location (Downloads) — copy into this repo as part
+  of the work, then treat the repo copies as canonical:
+  - concept page: `C:\Users\Jakup\Downloads\virtuella-medarbetare-webbplats.html`
+    (encoding verified clean UTF-8, 2026-06-10)
+  - component kit: `C:\Users\Jakup\Downloads\ve\`
+  Not blocked — ready for pickup.
 
 ## Notes
 
