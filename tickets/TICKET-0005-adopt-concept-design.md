@@ -2,10 +2,11 @@
 
 ## State
 
-- **status:** in-progress — all development DoD items implemented and committed;
-  the single remaining item is **Deployed** (push + live spot-check), which is
-  explicitly not the developer's to perform (owner/strategist per the 2026-06-10
-  grant). Everything below "Deployed" is ready for that step.
+- **status:** done — deployed 2026-06-11 by the strategist under the owner's
+  2026-06-10 grant: pushed 7945cbe..c6e0db4 to origin/main; live spot-check of
+  https://jakupguven-ab.github.io/website/ confirmed new content rendering with
+  0 BankID matches, 0 price patterns, org.nr present, 0 Google Fonts/jsDelivr
+  references.
 - **commit:** be6afbf (in-progress), 0f4a509 (vendor kit + self-hosted fonts/icons),
   6b20127 (site rework), plus the state/report commit referencing this ticket
 - **tests:** all checks run 2026-06-10/11 with headless Chrome 149 (no other
@@ -39,7 +40,7 @@
     mock UIs aria-hidden with controls taken out of tab order; NOT tested with
     a screen reader; contrast taken on trust from the kit tokens, not measured
 - **opened:** 2026-06-10
-- **closed:**
+- **closed:** 2026-06-11
 
 ## Ask
 
@@ -84,11 +85,12 @@ decisions, the decisions win.
       controls, sufficient contrast in both color schemes.
 - [x] `tests:` field records what was actually checked (browser widths, dark mode,
       no-JS, link resolution, no external requests), honestly; `none` if nothing was.
-- [ ] **Deployed:** the reworked site is live at the GitHub Pages URL and the live
+- [x] **Deployed:** the reworked site is live at the GitHub Pages URL and the live
       render is spot-checked. The push to origin is not the developer's to make — it
       is performed by the owner, or by the strategist under the owner's explicit
       2026-06-10 grant ("I want the website deployed … without having me in the
-      loop for these two tickets").
+      loop for these two tickets"). Done 2026-06-11 (push + live content checks
+      recorded in State above).
 
 ## Assumptions
 
