@@ -2,8 +2,9 @@
 
 ## State
 
-- **status:** in-progress — development DoD items met (see checkboxes); awaiting the
-  **Deployed** step, which is the owner's/strategist's per the DoD, not the developer's.
+- **status:** done — deployed 2026-06-11 by the strategist (push fba1336..ab5976d;
+  live spot-check confirmed "Koppla dina verktyg" rendering and the old akademi card
+  gone from https://jakupguven-ab.github.io/website/).
 - **commit:** afd9c39d66d145e7321b83b1b6261778ef0618bd (index.html card swap)
 - **tests:** no automated tests (static site — none exist). Checks actually run:
   (1) grep sweep of index.html for `akademi|kurs|ti-school` — after the swap the only
@@ -20,7 +21,7 @@
   reveal animation runs (captured mid-fade). NOT checked: live deployed render, real
   devices, screen reader.
 - **opened:** 2026-06-11
-- **closed:**
+- **closed:** 2026-06-11
 
 ## Ask
 
@@ -51,10 +52,10 @@ yet. Remove it and replace it with a step a first-time visitor can grasp.
       requests, fully static, fake data stays fake. *(Grep-checked; only copy in the
       one card changed.)*
 - [x] `tests:` field records what was actually checked, honestly.
-- [ ] **Deployed:** pushed to origin and live render spot-checked — push performed
+- [x] **Deployed:** pushed to origin and live render spot-checked — push performed
       by the owner or by the strategist per the same procedure as TICKET-0005
       (owner's 2026-06-10 deploy grant; this ticket is a correction to that same
-      live deliverable).
+      live deliverable). Done 2026-06-11 (recorded in State above).
 
 ## Assumptions
 
