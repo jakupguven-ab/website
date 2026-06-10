@@ -2,9 +2,42 @@
 
 ## State
 
-- **status:** in-progress
-- **commit:**
-- **tests:**
+- **status:** in-progress — all development DoD items implemented and committed;
+  the single remaining item is **Deployed** (push + live spot-check), which is
+  explicitly not the developer's to perform (owner/strategist per the 2026-06-10
+  grant). Everything below "Deployed" is ready for that step.
+- **commit:** be6afbf (in-progress), 0f4a509 (vendor kit + self-hosted fonts/icons),
+  6b20127 (site rework), plus the state/report commit referencing this ticket
+- **tests:** all checks run 2026-06-10/11 with headless Chrome 149 (no other
+  browsers, no real devices, no screen reader):
+  - external requests: page loaded over local HTTP with CDP network capture —
+    8 requests, all same-origin (html, css x3, js, woff2 x2, + browser's
+    automatic /favicon.ico probe, 404, no favicon exists); grep of all served
+    HTML/CSS/JS found no absolute URLs (one `https://tabler.io` inside the
+    Tabler license *comment* only — not a request)
+  - link resolution: scripted check of 122 href/src/url() references in
+    index.html, all 20 kit pages, and all CSS — all relative, all resolve on disk
+  - opened from disk: file:// renders verified (screenshots inspected)
+  - GitHub Pages subpath simulation: served repo parent as web root, loaded
+    /Website/index.html — all assets resolved, zero 404 besides favicon probe
+  - responsive: visual inspection at 1280px (light + dark) and true 390px via
+    CDP device emulation; at 390px scrollWidth == clientWidth == 390 (no page
+    overflow; wide mock components scroll inside their own frames — found and
+    fixed a flex min-width overflow bug during this check); widths 360/390/760/
+    820/1280 probed programmatically for overflow — none. No *visual* inspection
+    at 760–820px (probe only; headless window clamps below ~500px without CDP)
+  - dark mode: CDP-emulated prefers-color-scheme: dark — body bg = dark token
+    #18120f, full-page screenshot inspected
+  - reduced motion: CDP-emulated prefers-reduced-motion — all 26 reveal-marked
+    elements fully visible, no animation
+  - no-JS: script execution disabled — all 26 reveal-marked elements visible
+    (found and fixed: `.r` was hidden without the `.js` gate; now gated)
+  - content greps: zero BankID matches; zero price patterns (kr/mån, per månad,
+    priser); canned fake amounts (1 850 kr etc.) intentionally retained;
+    org.nr 559582-8921 and info@jakupguven.se present
+  - accessibility: semantic landmarks/skip-link/aria-labels reviewed in code;
+    mock UIs aria-hidden with controls taken out of tab order; NOT tested with
+    a screen reader; contrast taken on trust from the kit tokens, not measured
 - **opened:** 2026-06-10
 - **closed:**
 
@@ -18,38 +51,38 @@ decisions, the decisions win.
 
 ## Definition of done
 
-- [ ] Site adopts the concept design system: design tokens from the kit's
+- [x] Site adopts the concept design system: design tokens from the kit's
       `assets/styles.css` (CSS custom properties incl. the `prefers-color-scheme:
       dark` block), Inter, Tabler icons, and the reveal-on-scroll animation
       (`prefers-reduced-motion` respected, no-JS shows everything).
-- [ ] Concept page structure and copy carried over as-is: hero with approval-card
+- [x] Concept page structure and copy carried over as-is: hero with approval-card
       mock, "Så funkar det", "Lär känna teamet" (Vera/Emil/Siv), device showcase,
       integrations band, final CTA, footer.
-- [ ] **Override 1 — no prices:** the pricing section ("Ett team du kan växa med",
+- [x] **Override 1 — no prices:** the pricing section ("Ett team du kan växa med",
       all price cards and amounts) is removed entirely. No prices anywhere on the
       site, per the standing rule from TICKET-0001.
-- [ ] **Override 2 — brand:** all branding is **Jakup Güven AB** (header, title,
+- [x] **Override 2 — brand:** all branding is **Jakup Güven AB** (header, title,
       footer with real org.nr 559582-8921), contact **info@jakupguven.se** as visible
       text + mailto. "Virtuella medarbetare" may describe the concept in copy but is
       not the site's brand mark.
-- [ ] **Override 3 — no BankID claims:** every BankID mention is removed (the hero
+- [x] **Override 3 — no BankID claims:** every BankID mention is removed (the hero
       trust-badge row and the "BankID-inloggning" item in the integrations band —
       replace or drop the band cell so the grid still composes). Owner decision
       2026-06-10 after strategist objection; the other capability claims stand as-is.
-- [ ] Device-showcase placeholder frames replaced with the real components from the
+- [x] Device-showcase placeholder frames replaced with the real components from the
       kit (`desktop/`, `tablet/`, `mobile/`) per the developer note embedded in the
       concept page. The component kit is copied into this repo (it currently lives
       only at `C:\Users\Jakup\Downloads\ve` — fragile location).
-- [ ] Fonts and the Tabler icon webfont **self-hosted** — no Google Fonts or jsDelivr
+- [x] Fonts and the Tabler icon webfont **self-hosted** — no Google Fonts or jsDelivr
       requests (GDPR; the page itself claims "data lagrad inom EU").
-- [ ] Still fully static: no build step, no frameworks, no cookies/analytics;
+- [x] Still fully static: no build step, no frameworks, no cookies/analytics;
       relative URLs only; works opened from disk and under the GitHub Pages subpath.
-- [ ] All canned data stays visibly fake ("Glasmästeri Svensson AB", "Anders P.",
+- [x] All canned data stays visibly fake ("Glasmästeri Svensson AB", "Anders P.",
       placeholder amounts); nothing about real estate, financial targets, internal
       plans, or prices anywhere in content, comments, filenames, or commit messages.
-- [ ] Responsive and accessible: semantic HTML, alt text/aria labels on icon-only
+- [x] Responsive and accessible: semantic HTML, alt text/aria labels on icon-only
       controls, sufficient contrast in both color schemes.
-- [ ] `tests:` field records what was actually checked (browser widths, dark mode,
+- [x] `tests:` field records what was actually checked (browser widths, dark mode,
       no-JS, link resolution, no external requests), honestly; `none` if nothing was.
 - [ ] **Deployed:** the reworked site is live at the GitHub Pages URL and the live
       render is spot-checked. The push to origin is not the developer's to make — it

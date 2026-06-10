@@ -57,6 +57,22 @@ public-safe.
 - **date:** 2026-06-09
 - **status:** open — owner decision
 
+## Concept adoption: judgment calls inside the overrides (TICKET-0005)
+- **note:** Developer choices where the ticket left room, all open to owner
+  revision: (1) the kit academy screens showed a premium-course monthly amount —
+  treated as a product price and removed under override 1; fake customer amounts
+  kept as allowed canned data; (2) the BankID band cell was *replaced* (not
+  dropped) with a "Du godkänner allt" cell reusing existing page copy, keeping
+  the 4-column band; (3) the concept's inert buttons became mailto/anchor links,
+  and the footer's dead Integritet/Villkor "#" links were replaced by the visible
+  mailto (no such pages exist — separate ticket if wanted); (4) embedded product
+  mocks are aria-hidden and out of tab order; on narrow phones they scroll
+  sideways inside their frames rather than shrinking.
+- **source:** developer (TICKET-0005 implementation; details in
+  reports/TICKET-0005-report.md)
+- **date:** 2026-06-11
+- **status:** open — owner read-through
+
 ## Custom domain (jakupguven.se) comes later
 - **note:** v1 hosts on the default GitHub Pages URL. Pointing jakupguven.se (or
   www/subdomain) at Pages needs DNS changes at the registrar — owner action, later
