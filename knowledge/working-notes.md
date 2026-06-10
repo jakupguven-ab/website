@@ -18,7 +18,7 @@ public-safe.
   before the site is promoted anywhere.
 - **source:** owner instruction gave the address; no confirmation the inbox exists
 - **date:** 2026-06-09
-- **status:** open
+- **status:** confirmed 2026-06-10 — owner states the mailbox exists
 
 ## v1 design choices made without owner sign-off (TICKET-0001)
 - **note:** Developer choices, all open to iteration: (1) single page rather than

@@ -17,6 +17,8 @@
   #eef2f6 7.0:1 — all pass AA with margin; (6) manual read-through of the full CSS
   and the HTML diff. Not verified: actual rendering, the clip-path full-bleed band
   technique on real viewports, mobile nav wrap below 600px.
+  UPDATE 2026-06-10: owner eyeballed the live site post-publish — looks fine. The
+  render gap is closed by human check.
 - **opened:** 2026-06-09
 - **closed:** 2026-06-09
 
