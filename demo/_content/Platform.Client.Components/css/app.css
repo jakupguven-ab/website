@@ -94,9 +94,11 @@ body {
 }
 
 /* The OS window is the frame (TICKET-0007): the app fills it edge-to-edge,
-   no centering gutter around a preview card. */
+   no centering gutter around a preview card. On mobile browsers 100vh can
+   overflow behind the dynamic toolbars; dvh tracks the real visible viewport. */
 #app {
   height: 100vh;
+  height: 100dvh;
   display: flex;
 }
 
@@ -642,6 +644,124 @@ button.row {
 }
 .dept-hint .ti { font-size: 16px; color: var(--color-text-tertiary); flex-shrink: 0; }
 .dept-hint span { font-size: 10.5px; color: var(--color-text-secondary); line-height: 1.45; }
+
+/* ---- Responsive tiers (TICKET-0010) ---------------------------------------------------------------
+   One breakpoint rule (product vision §5): desktop 3 panes ≥960px; tablet 2 panes
+   (rail stays, context folds into a card at the top of the content column);
+   mobile 1 column + bottom tab bar, detail screens use a back header instead.
+   The kit's mobile/tablet mockups are GRAMMAR reference only — proportions come
+   from the real viewport, never from the 320px/620px preview frames. */
+
+/* Context fold — hidden on desktop; becomes the kit's tablet summary card below
+   the screen header on tablet and mobile. Lives inside .content so it stays
+   pinned above the scrolling pane. */
+.context-fold { display: none; }
+.context-fold .kicker { margin: 0 0 3px; letter-spacing: 0.03em; color: var(--color-text-secondary); }
+.fold-text { font-size: 12.5px; line-height: 1.45; }
+.fold-row { display: flex; align-items: center; gap: 14px; }
+.fold-main { flex: 1; min-width: 0; }
+.fold-actions { display: flex; gap: 7px; flex-shrink: 0; }
+
+/* Bottom tab bar (mobile top-level screens) — hidden above the mobile breakpoint. */
+.tabbar {
+  display: none;
+  flex-shrink: 0;
+  border-top: 0.5px solid var(--color-border-tertiary);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  background: var(--color-background-primary);
+}
+.tabbar button {
+  flex: 1; padding: 9px 0 11px;
+  border: none; background: transparent;
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  color: var(--color-text-tertiary);
+}
+.tabbar button.active { color: var(--color-text-info); }
+.tabbar .ti { font-size: 20px; }
+.tabbar span { font-size: 10px; }
+
+/* Back chevron in agent headers — mobile detail screens only. */
+.agent-back {
+  display: none;
+  align-items: center;
+  border: none; background: transparent; padding: 0;
+  color: var(--color-text-secondary);
+}
+.agent-back .ti { font-size: 20px; }
+
+/* Team-home / Att göra / Mer — headers and rows (kit: mobile/team.html grammar). */
+.home-header {
+  padding: 16px 16px 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.home-title { font-size: 17px; font-weight: 500; }
+.home-alert {
+  display: flex; align-items: center; gap: 10px;
+  margin: 4px 14px 14px;
+  background: var(--color-background-info);
+  border: none; border-radius: var(--border-radius-lg);
+  padding: 11px 13px;
+  color: var(--color-text-info);
+  text-align: left;
+  flex-shrink: 0;
+}
+.home-alert > .ti { font-size: 19px; }
+.home-alert span { flex: 1; font-size: 12.5px; font-weight: 500; }
+.home-alert .chev { font-size: 17px; }
+.home-member {
+  display: flex; align-items: center; gap: 11px;
+  padding: 11px 0;
+  border: none; border-bottom: 0.5px solid var(--color-border-tertiary);
+  background: transparent;
+  width: 100%; text-align: left;
+}
+.home-member-main { flex: 1; line-height: 1.35; min-width: 0; }
+.home-member-name { font-size: 13.5px; font-weight: 500; }
+.home-member-role { font-size: 11.5px; color: var(--color-text-secondary); }
+.avatar-38 { width: 38px; height: 38px; font-size: 14px; }
+.count-badge {
+  font-size: 10.5px; min-width: 18px; height: 18px; padding: 0 5px;
+  border-radius: 9px;
+  background: var(--color-accent); color: var(--color-on-accent);
+  display: flex; align-items: center; justify-content: center;
+}
+
+button.list-row {
+  width: 100%; text-align: left;
+  border: none; border-bottom: 0.5px solid var(--color-border-tertiary);
+  background: transparent;
+}
+.list-row .chev { font-size: 16px; color: var(--color-text-tertiary); }
+
+/* Tablet and below: the right context panel folds into a card at the top of the
+   content column (kit: concept-kit/tablet/*). The rail stays. */
+@media (max-width: 959.98px) {
+  .context { display: none; }
+  .context-fold {
+    display: block;
+    flex-shrink: 0;
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-lg);
+    padding: 12px 14px;
+    margin: 14px 16px 0;
+  }
+}
+
+/* Mobile: single column + bottom bar; detail screens keep a back header instead
+   (kit: concept-kit/mobile/*). Content fills the real viewport — no fixed frame. */
+@media (max-width: 639.98px) {
+  .topbar { display: none; }
+  .rail { display: none; }
+  .tabbar { display: flex; }
+  .agent-back { display: inline-flex; }
+  .context-fold { margin: 12px 14px 0; }
+  /* Quick actions become the kit's two-column tap grid. */
+  .quick-actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .chip-btn { padding: 10px 11px; font-size: 12px; font-weight: 500; }
+  .chip-btn .ti { font-size: 18px; }
+  .onboarding-body { padding: 18px 16px 20px; }
+}
 
 /* ---- Misc --------------------------------------------------------------------------------------- */
 b, strong { font-weight: 500; }
