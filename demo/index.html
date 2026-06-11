@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Plattformen — demo</title>
+    <!-- "/" for local dev; publish rewrites this to $(BaseHref) (default /website/demo/)
+         so the app runs under the GitHub Pages subpath. -->
+    <base href="/website/demo/" />
+    <!-- Everything is bundled locally (component library wwwroot) — no CDN requests. -->
+    <link rel="stylesheet" href="_content/Platform.Client.Components/css/tabler-icons.min.css" />
+    <link rel="stylesheet" href="_content/Platform.Client.Components/css/app.css" />
+    <link rel="icon" href="data:," />
+</head>
+
+<body>
+    <div id="app">Laddar…</div>
+
+    <div id="blazor-error-ui" data-nosnippet style="display:none;">
+        Ett oväntat fel inträffade.
+        <a href="." class="reload">Ladda om</a>
+    </div>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+</body>
+
+</html>

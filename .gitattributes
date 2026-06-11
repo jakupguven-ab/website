@@ -1,0 +1,4 @@
+# The demo/ folder is a published Blazor WASM artifact. Bytes must stay exactly
+# as published: the runtime verifies SHA-256 integrity hashes, so any line-ending
+# normalization corrupts the app. Treat everything under demo/ as binary.
+demo/** -text
