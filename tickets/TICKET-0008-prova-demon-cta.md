@@ -2,9 +2,11 @@
 
 ## State
 
-- **status:** in-progress — all dev items done and locally verified; **Deployed**
-  checkbox remains open (push + live spot-check is the strategist's step, not the
-  developer's)
+- **status:** done — deployed 2026-06-11 by the strategist (push d596ec5..0fbb7be).
+  Live spot-checks: landing renders both "Prova demon" CTAs; demo index HTTP 200
+  with base href `/website/demo/`; `_framework/` serves (`.nojekyll` effective);
+  headless-browser boot of the live demo rendered the onboarding screen with no
+  Blazor error UI.
 - **commit:** a952781 (demo/ artifact copy from Platform 6b764a0 + .gitattributes
   `demo/** -text`), c18ed17 (Prova demon CTAs + .nojekyll)
 - **tests:** headless verification 2026-06-11 (Python http.server + Playwright
@@ -23,7 +25,7 @@
   `_framework/dotnet.js`, which would have broken Blazor's SHA-256 integrity
   check on Pages). NOT tested: the real GitHub Pages deployment (not pushed).
 - **opened:** 2026-06-11
-- **closed:**
+- **closed:** 2026-06-11
 
 ## Ask
 
@@ -53,8 +55,9 @@ frozen snapshot — it is NOT kept in sync with the desktop app.
       HQ decisions.md), fake data stays fake. — only CTA hrefs/labels changed in
       index.html; headless check confirmed zero external requests site-wide.
 - [x] `tests:` field records what was actually checked, honestly.
-- [ ] **Deployed:** pushed and live render spot-checked per the established
-      procedure — both the landing page CTA and the live demo URL.
+- [x] **Deployed:** pushed and live render spot-checked per the established
+      procedure — both the landing page CTA and the live demo URL. Done
+      2026-06-11 (checks recorded in State above).
 
 ## Notes
 
