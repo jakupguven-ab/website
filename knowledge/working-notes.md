@@ -10,7 +10,8 @@ public-safe.
   a possible later iteration. Not explicitly confirmed by the owner.
 - **source:** assistant inference from the target market
 - **date:** 2026-06-09
-- **status:** open
+- **status:** confirmed 2026-06-12 — owner approved the live site as published
+  (Swedish-only); see decisions.md "Owner approves the live site as published"
 
 ## info@jakupguven.se mailbox may not exist yet
 - **note:** The site displays info@jakupguven.se as instructed. Whether the mailbox is
@@ -32,7 +33,10 @@ public-safe.
   owner's call whether to add it.
 - **source:** developer (TICKET-0001 implementation)
 - **date:** 2026-06-09
-- **status:** open
+- **status:** resolved 2026-06-12 — owner approved the live site ("I am happy
+  with the website"); items (1)–(5) stand as evolved through TICKET-0003/0005;
+  item (6) org-nr was added under TICKET-0005 (HQ D-0017) and endorsed by the
+  owner 2026-06-12. See decisions.md "Owner approves the live site as published"
 
 ## Voice is "jag" + company-as-subject at entity level (TICKET-0003)
 - **note:** Per owner directive, all "vi/oss" copy was reworked to a one-person
@@ -44,7 +48,8 @@ public-safe.
   Kontakt sections and confirm the voice sounds like him.
 - **source:** developer (TICKET-0003 implementation)
 - **date:** 2026-06-09
-- **status:** open — awaiting owner read-through
+- **status:** confirmed 2026-06-12 — owner read-through done, site approved as
+  published; see decisions.md "Owner approves the live site as published"
 
 ## Org-nr in footer — developer recommendation: add it (TICKET-0003)
 - **note:** Still the owner's open call (see TICKET-0001 note above), but
@@ -55,7 +60,10 @@ public-safe.
   decision.
 - **source:** developer (TICKET-0003 customer-expectation analysis)
 - **date:** 2026-06-09
-- **status:** open — owner decision
+- **status:** resolved 2026-06-12 — org.nr 559582-8921 was already added to the
+  footer under TICKET-0005 (HQ D-0017: "real org.nr in the footer"); the owner
+  explicitly endorsed the developer's recommendation 2026-06-12 ("go with
+  developers recommendation"). No change needed — already live
 
 ## Concept adoption: judgment calls inside the overrides (TICKET-0005)
 - **note:** Developer choices where the ticket left room, all open to owner
@@ -71,7 +79,8 @@ public-safe.
 - **source:** developer (TICKET-0005 implementation; details in
   reports/TICKET-0005-report.md)
 - **date:** 2026-06-11
-- **status:** open — owner read-through
+- **status:** confirmed 2026-06-12 — owner read-through done, site approved as
+  published; see decisions.md "Owner approves the live site as published"
 
 ## Custom domain (jakupguven.se) comes later
 - **note:** v1 hosts on the default GitHub Pages URL. Pointing jakupguven.se (or
