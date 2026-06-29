@@ -19,11 +19,21 @@
   src: url("../fonts/inter-latin-500-normal.woff2") format("woff2");
 }
 
-/* ---- Design tokens (kit: assets/styles.css) ------------------------------ */
+/* ---- Design tokens (iteration-2: concept-kit/iteration-2) -----------------
+   Tokens pinned to the owner's "envisioned finished product" demo
+   (concept-kit/iteration-2/virtuella-medarbetare-demo.html, TICKET-0021).
+   Names are kept stable so existing markup keeps working; the values are the
+   demo's. Mapping demo → token:
+     --bg     #ecebe6 → --color-background-app   (window backdrop behind the card)
+     --card   #fff    → --color-background-primary
+     --cream  #faf9f6 → --color-background-tertiary
+     --cream2 #f6f5f1 → --color-background-secondary
+   text/border/accent and the info/suc/warn/dan bg+text pairs already matched. */
 :root {
+  --color-background-app:       #ecebe6;
   --color-background-primary:   #ffffff;
   --color-background-secondary: #f6f5f1;
-  --color-background-tertiary:  #fbfaf7;
+  --color-background-tertiary:  #faf9f6;
   --color-background-info:    #e6f1fb;
   --color-background-success: #e1f5ee;
   --color-background-warning: #faeeda;
@@ -45,8 +55,9 @@
   --color-accent:    #185fa5;
   --color-on-accent: #ffffff;
 
-  --border-radius-md: 8px;
-  --border-radius-lg: 12px;
+  --border-radius-md: 8px;   /* demo --r8  */
+  --border-radius-10: 10px;  /* demo --r10 */
+  --border-radius-lg: 12px;  /* demo --r12 */
   --border-radius-xl: 16px;
 
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -54,6 +65,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --color-background-app:       #141311;
     --color-background-primary:   #1f1e1c;
     --color-background-secondary: #2a2926;
     --color-background-tertiary:  #18120f;
@@ -88,7 +100,8 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   color: var(--color-text-primary);
-  background: var(--color-background-tertiary);
+  /* iteration-2: the window backdrop is the warm grey behind the app card. */
+  background: var(--color-background-app);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -100,6 +113,23 @@ body {
   height: 100vh;
   height: 100dvh;
   display: flex;
+}
+
+/* iteration-2: above the mobile tier the app is a centred card floating on the
+   warm-grey backdrop (demo grammar), not full-bleed. On mobile it returns to
+   edge-to-edge — the framed-card chrome is removed below (mobile media query). */
+@media (min-width: 640px) {
+  #app {
+    padding: 18px;
+    justify-content: center;
+  }
+  .app {
+    flex: 0 1 1120px;
+    max-width: 1120px;
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
 }
 
 input, button { font-family: inherit; color: inherit; }
@@ -136,15 +166,14 @@ p { margin: 0; }
 }
 
 .topbar {
-  height: 40px;
   flex-shrink: 0;
   border-bottom: 0.5px solid var(--color-border-tertiary);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 14px;
+  padding: 11px 18px;
 }
-.topbar-title { font-size: 13px; font-weight: 500; }
+.topbar-title { font-size: 14px; font-weight: 500; }
 .topbar-avatar {
   width: 26px; height: 26px; border-radius: 50%;
   background: var(--color-background-secondary);
@@ -159,12 +188,15 @@ p { margin: 0; }
 .main { display: flex; flex: 1; min-height: 0; }
 
 /* ---- Team rail (left) ------------------------------------------------------ */
+/* iteration-2: wider rail (208px) on the cream surface; members are roomier rows
+   and the bottom strip is now a 6-icon nav (HQ · Team · Register · Dokument ·
+   Akademin · Mer) instead of the old 3-icon section strip. */
 .rail {
-  width: 158px;
+  width: 208px;
   flex-shrink: 0;
-  background: var(--color-background-secondary);
+  background: var(--color-background-tertiary);
   border-right: 0.5px solid var(--color-border-tertiary);
-  padding: 12px 10px;
+  padding: 14px 12px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -172,47 +204,73 @@ p { margin: 0; }
 .rail .kicker { margin-bottom: 10px; }
 
 .rail-member {
-  display: flex; align-items: center; gap: 8px;
-  padding: 7px 8px;
-  border: none; border-radius: var(--border-radius-md);
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 8px;
+  border: none; border-radius: 9px;
   background: transparent;
   margin-bottom: 3px;
   width: 100%; text-align: left;
 }
+.rail-member:hover { background: var(--color-background-secondary); }
 .rail-member.active-info    { background: var(--color-background-info); }
 .rail-member.active-success { background: var(--color-background-success); }
 .rail-member.active-warning { background: var(--color-background-warning); }
 
-.rail-name { font-size: 12.5px; font-weight: 500; line-height: 1.25; }
-.rail-role { font-size: 10.5px; color: var(--color-text-secondary); line-height: 1.25; }
+.rail-name { font-size: 13.5px; font-weight: 500; line-height: 1.15; }
+.rail-role { font-size: 11.5px; color: var(--color-text-secondary); line-height: 1.25; }
 .rail-member.active-info .rail-name,    .rail-member.active-info .rail-role    { color: var(--color-text-info); }
 .rail-member.active-success .rail-name, .rail-member.active-success .rail-role { color: var(--color-text-success); }
 .rail-member.active-warning .rail-name, .rail-member.active-warning .rail-role { color: var(--color-text-warning); }
 
 .rail-add {
-  display: flex; align-items: center; gap: 8px;
-  padding: 7px 8px;
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 8px;
   border: none; background: transparent;
   color: var(--color-text-tertiary);
-  font-size: 12px;
+  font-size: 13px;
   width: 100%; text-align: left;
 }
 .rail-add-circle {
-  width: 28px; height: 28px; border-radius: 50%;
-  border: 0.5px dashed var(--color-border-secondary);
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1px dashed var(--color-border-secondary);
   display: flex; align-items: center; justify-content: center;
 }
 .rail-add-circle .ti { font-size: 15px; }
 
-.rail-bottom {
+/* iteration-2 bottom icon-nav: 6 evenly-spread targets across the foot of the
+   rail (demo .iconnav) — HQ · Team · Register · Dokument · Akademin · Mer. */
+.rail-iconnav {
   margin-top: auto;
-  padding-top: 10px;
+  padding: 12px 2px 2px;
   border-top: 0.5px solid var(--color-border-tertiary);
-  display: flex; gap: 14px;
+  display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: space-between;
+  gap: 8px;
 }
-.rail-bottom button { border: none; background: transparent; padding: 0; }
-.rail-bottom .ti { font-size: 18px; color: var(--color-text-tertiary); }
-.rail-bottom button.active .ti { color: var(--color-text-info); }
+.rail-iconnav button { border: none; background: transparent; padding: 0; }
+.rail-iconnav .ti { font-size: 18px; color: var(--color-text-tertiary); }
+.rail-iconnav button:hover .ti { color: var(--color-text-secondary); }
+.rail-iconnav button.active .ti { color: var(--color-text-info); }
+
+/* "lär sig" pill on a rail member still learning (demo .lrn). */
+.rail-learning {
+  margin-left: auto;
+  font-size: 10.5px;
+  background: var(--color-background-warning);
+  color: var(--color-text-warning);
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+/* pending-count badge on a rail member (demo .bdg). */
+.rail-count {
+  margin-left: auto;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-size: 11px;
+  border-radius: 50%;
+  width: 20px; height: 20px;
+  display: flex; align-items: center; justify-content: center;
+}
 
 /* ---- Avatars / tones -------------------------------------------------------- */
 .avatar {
@@ -450,6 +508,7 @@ button.row {
 }
 .list-row .ti.tool-icon { font-size: 20px; color: var(--color-text-secondary); }
 .list-row-label { flex: 1; font-size: 13px; }
+.list-row-sub { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; }
 
 /* ---- Proposal / banner cards ---------------------------------------------------------- */
 .proposal-card {
@@ -605,6 +664,69 @@ button.row {
 .status-row { display: flex; justify-content: space-between; }
 .status-row span:last-child { color: var(--color-text-primary); }
 
+/* ---- Personalisera avatar editor (TICKET-0028, demo scCustomize) ------------------------------- */
+/* Generic single-line text input — matches the demo's input[type=text]. */
+.text-input {
+  font: inherit; font-size: 13.5px;
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 12px; width: 100%; max-width: 320px;
+  outline: none; background: var(--color-background-primary);
+}
+.text-input:focus { border-color: var(--color-text-info); box-shadow: 0 0 0 3px rgba(24,95,165,0.12); }
+
+/* Live avatar preview card (demo .preview). */
+.avatar-preview {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  background: var(--color-background-tertiary);
+  margin-bottom: 12px;
+}
+.avatar-preview-name { font-weight: 500; }
+.avatar-52 { width: 52px; height: 52px; font-size: 22px; }
+
+/* Colour swatches (demo .swatches / .sw). The roster default seeds the choice (D-0003). */
+.swatches { display: flex; gap: 9px; flex-wrap: wrap; margin: 4px 0; }
+.swatch {
+  width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
+  border: 2px solid transparent; padding: 0;
+}
+.swatch.on { border-color: var(--color-text-primary); }
+
+/* Emoji avatar picker (demo .emoji / .em). */
+.emoji-grid { display: flex; gap: 7px; flex-wrap: wrap; margin: 4px 0; max-width: 260px; }
+.emoji-cell {
+  width: 34px; height: 34px; border-radius: var(--border-radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; cursor: pointer;
+  background: var(--color-background-tertiary);
+  border: 0.5px solid var(--color-border-tertiary);
+}
+.emoji-cell.on { border-color: var(--color-text-info); box-shadow: 0 0 0 2px rgba(24,95,165,0.2); }
+
+/* File-upload affordance (demo .up) — a styled <label> wrapping a hidden InputFile. */
+.upload-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12.5px; padding: 7px 12px;
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-md);
+  cursor: pointer; background: var(--color-background-primary);
+}
+.upload-btn:hover { background: var(--color-background-secondary); }
+
+/* Disabled "Kör automatiskt — kommer senare" row (D-0025: autonomy gradient not built). */
+.radio-row.disabled { color: var(--color-text-tertiary); cursor: not-allowed; }
+.radio-row.disabled .radio-label { color: var(--color-text-tertiary); }
+
+/* Neutral badge (demo .b-neu) — the quiet "kommer senare" tag. */
+.bg-neutral { background: var(--color-background-secondary); color: var(--color-text-secondary); }
+
+/* Licence-gating note in the Academy course list (demo README "kräver Fortnox …"). */
+.licence-note { display: inline-flex; align-items: center; gap: 4px; color: var(--color-text-warning); }
+.licence-note .ti { font-size: 13px; }
+
 /* ---- Onboarding -------------------------------------------------------------------------------- */
 .onboarding-body { flex: 1; min-height: 0; overflow-y: auto; padding: 28px 24px 26px; }
 .onboarding-inner { max-width: 470px; margin: 0 auto; }
@@ -626,6 +748,16 @@ button.row {
 .onboarding-hint { margin-top: 6px; font-size: 11.5px; color: var(--color-text-tertiary); }
 .onboarding-kicker { margin: 0 0 11px; font-size: 11px; font-weight: 500; letter-spacing: 0.03em; color: var(--color-text-tertiary); }
 .onboarding-cta { margin-top: 22px; }
+
+/* Koppla & legitimera rows (iteration-2 scOnboarding): Fortnox + BankID status lines. */
+.onboarding-legit-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 0; font-size: 13.5px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+.onboarding-legit-row:last-of-type { border-bottom: none; }
+.onboarding-legit-row > span:first-child { display: inline-flex; align-items: center; gap: 8px; }
+.onboarding-legit-row .ti { font-size: 16px; }
 
 .connected { font-size: 12px; color: var(--color-text-success); font-weight: 500; white-space: nowrap; }
 .connected .ti { font-size: 15px; vertical-align: -2px; }
@@ -734,6 +866,188 @@ button.list-row {
 }
 .list-row .chev { font-size: 16px; color: var(--color-text-tertiary); }
 
+/* ---- HQ home cockpit (TICKET-0023) ------------------------------------------------
+   The home/hem landing's own grammar, ported faithfully from the iteration-2 demo
+   (concept-kit/iteration-2 scHQ/scActivity). Pure presentation; data comes through
+   IPlatformClient. Quiet-by-default (D-0025): only the alert/banner surfaces shout. */
+
+/* The home header carries a date line under the greeting. */
+.home-dateline { font-size: 12.5px; color: var(--color-text-secondary); margin-top: 2px; }
+
+/* "Synkad · 3 min sen" status chip (demo .sync). */
+.sync-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--color-text-secondary);
+  border: none; background: transparent; cursor: default;
+}
+.sync-chip .ti { font-size: 15px; }
+.sync-chip.synced { color: var(--color-text-success); }
+
+/* ---- Register (TICKET-0024): segmented control · sync toggle · contact rows -------------------- */
+/* Kunder / Leverantörer segmented control (demo .seg). */
+.segmented { display: flex; gap: 6px; margin-bottom: 10px; }
+.segmented .seg {
+  font-size: 12.5px; font-weight: 500;
+  padding: 6px 14px;
+  border: 0.5px solid var(--color-border-tertiary);
+  background: var(--color-background-primary);
+  color: var(--color-text-secondary);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+}
+.segmented .seg.active {
+  background: var(--color-background-info);
+  color: var(--color-text-info);
+  border-color: transparent;
+}
+
+/* "Håll synkat med Fortnox" two-way toggle row (demo cream row + .seg toggle). */
+.sync-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 11px 13px;
+  margin-bottom: 10px;
+}
+.sync-row-main { display: flex; align-items: center; gap: 9px; }
+.sync-row-main .ti { font-size: 17px; color: var(--color-text-success); }
+.sync-row-title { font-size: 12.5px; font-weight: 500; }
+.sync-row-sub   { font-size: 11px; color: var(--color-text-secondary); }
+.sync-toggle {
+  font-size: 12px; font-weight: 500;
+  padding: 5px 16px;
+  border: 0.5px solid var(--color-border-tertiary);
+  background: var(--color-background-primary);
+  color: var(--color-text-secondary);
+  border-radius: var(--border-radius-md);
+  cursor: pointer; white-space: nowrap;
+}
+.sync-toggle.on { background: var(--color-background-success); color: var(--color-text-success); border-color: transparent; }
+
+/* A contact row in the register (avatar · name/detail · consent badge / chevron). */
+.contact-detail { font-size: 11px; color: var(--color-text-secondary); }
+
+/* ---- Connectors (TICKET-0025): the Kopplingar layer (demo .conn / .ci) ------------------------- */
+.conn-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 11px 0;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+.conn-row:last-of-type { border-bottom: none; }
+.conn-main { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.conn-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; flex-shrink: 0;
+  border-radius: var(--border-radius-md);
+  background: var(--color-background-secondary);
+  color: var(--color-text-secondary);
+}
+.conn-icon .ti { font-size: 17px; }
+.conn-name { font-size: 12.5px; font-weight: 500; }
+.conn-detail { font-size: 11px; color: var(--color-text-secondary); }
+
+/* The "N saker väntar på ditt ok" banner → Att göra (demo .ibanner). */
+.cta-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  width: 100%; text-align: left;
+  background: var(--color-background-info);
+  border: none; border-radius: var(--border-radius-lg);
+  padding: 13px 16px;
+  color: var(--color-text-info);
+  font-size: 14px; cursor: pointer;
+  margin-bottom: 14px;
+}
+.cta-banner .ti { font-size: 17px; }
+.cta-banner-label { display: flex; align-items: center; gap: 9px; flex: 1; }
+
+/* Week-metric tiles (demo .mrow / .metric). */
+.metric-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+.metric-tile {
+  background: var(--color-background-secondary);
+  border: none; border-radius: var(--border-radius-md);
+  padding: 11px 13px; text-align: left; cursor: pointer;
+}
+.metric-tile .metric-label { font-size: 11px; color: var(--color-text-secondary); }
+.metric-tile .metric-value { font-size: 20px; font-weight: 500; }
+
+/* Result card + liquidity bar (demo .acard + .bar). */
+.result-card {
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: 14px; margin-bottom: 12px;
+  width: 100%; text-align: left; background: transparent; cursor: pointer;
+}
+.result-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 12px; margin-bottom: 8px; font-size: 13px;
+}
+.result-sub { font-size: 12px; color: var(--color-text-secondary); }
+.bar { height: 8px; border-radius: 5px; background: var(--color-background-info); overflow: hidden; }
+.bar > i { display: block; height: 100%; background: var(--color-accent); }
+
+/* Likviditet scale labels (idag → prognos) above the cash-flow bar (demo .sub row). */
+.liquidity-scale {
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--color-text-secondary);
+}
+
+/* Reports period selector in the context panel (demo <select>). */
+.period-select {
+  width: 100%; padding: 8px 10px;
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-md);
+  background: transparent; color: var(--color-text-primary);
+  font-size: 12.5px; cursor: pointer;
+}
+
+/* Inline informational note (demo .note) — a quiet hint / status line. Used for the
+   ask-first / accountant STOP-line copy on Viktiga datum and Rapporter. */
+.note {
+  display: flex; align-items: flex-start; gap: 8px;
+  padding: 9px 11px;
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  font-size: 11.5px; line-height: 1.5; color: var(--color-text-secondary);
+}
+.note .ti { font-size: 15px; flex-shrink: 0; margin-top: 1px; color: var(--color-text-tertiary); }
+
+/* Activity feed events (demo .evt / .dot). Shared by HQ home + Händelser. */
+.evt {
+  display: flex; gap: 11px; padding: 11px 0;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  font-size: 13.5px;
+}
+.evt-dot {
+  width: 28px; height: 28px; border-radius: 50%; flex: none;
+  display: flex; align-items: center; justify-content: center; font-size: 13px;
+}
+.evt-text { line-height: 1.35; }
+.evt-when { font-size: 11.5px; color: var(--color-text-tertiary); margin-top: 1px; }
+
+/* Inline text link (demo "Visa alla händelser →"). */
+.text-link {
+  border: none; background: transparent; padding: 0; cursor: pointer;
+  color: var(--color-accent); font-size: 13px;
+}
+
+/* Context-panel deadline rows (demo .dl). Reused on the home context panel. */
+.deadline-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  width: 100%; text-align: left; background: transparent; cursor: pointer;
+  padding: 11px 0; border: none; border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+.deadline-row:last-of-type { border-bottom: none; }
+.deadline-title { font-size: 12.5px; font-weight: 500; }
+.deadline-sub { font-size: 11px; color: var(--color-text-secondary); }
+
+/* Context-panel team-status rows on the home (demo .row inside the panel). */
+.team-status-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 0; font-size: 12.5px;
+}
+.team-status-row .who { display: flex; align-items: center; gap: 8px; }
+.team-status-row .state { font-size: 11.5px; }
+
 /* Tablet and below: the right context panel folds into a card at the top of the
    content column (kit: concept-kit/tablet/*). The rail stays. */
 @media (max-width: 959.98px) {
@@ -751,6 +1065,9 @@ button.list-row {
 /* Mobile: single column + bottom bar; detail screens keep a back header instead
    (kit: concept-kit/mobile/*). Content fills the real viewport — no fixed frame. */
 @media (max-width: 639.98px) {
+  /* Mobile returns to edge-to-edge — the framed card chrome is desktop/tablet only. */
+  #app { padding: 0; }
+  .app { border: none; border-radius: 0; box-shadow: none; max-width: none; }
   .topbar { display: none; }
   .rail { display: none; }
   .tabbar { display: flex; }
