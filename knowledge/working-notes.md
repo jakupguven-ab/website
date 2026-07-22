@@ -21,7 +21,7 @@ public-safe.
 - **date:** 2026-06-09
 - **status:** confirmed 2026-06-10 — owner states the mailbox exists
 
-## v1 design choices made without owner sign-off (TICKET-0001)
+## v1 design choices made without owner sign-off ([TICKET-0001](../tickets/TICKET-0001-build-static-site-v1.md))
 - **note:** Developer choices, all open to iteration: (1) single page rather than
   multiple pages — content volume didn't justify more; (2) no images or logo, pure
   text-first as briefed; (3) light theme, system font stack, dark-blue accent
@@ -31,41 +31,41 @@ public-safe.
   confirm it sounds like him; (6) footer says "Malmö" per the brief but no street
   address/org-nr is published — common on Swedish company sites to include org-nr,
   owner's call whether to add it.
-- **source:** developer (TICKET-0001 implementation)
+- **source:** developer ([TICKET-0001](../tickets/TICKET-0001-build-static-site-v1.md) implementation)
 - **date:** 2026-06-09
 - **status:** resolved 2026-06-12 — owner approved the live site ("I am happy
-  with the website"); items (1)–(5) stand as evolved through TICKET-0003/0005;
-  item (6) org-nr was added under TICKET-0005 (HQ D-0017) and endorsed by the
+  with the website"); items (1)–(5) stand as evolved through [TICKET-0003](../tickets/TICKET-0003-honest-voice-and-customer-trust.md)/0005;
+  item (6) org-nr was added under [TICKET-0005](../tickets/TICKET-0005-adopt-concept-design.md) (HQ D-0017) and endorsed by the
   owner 2026-06-12. See decisions.md "Owner approves the live site as published"
 
-## Voice is "jag" + company-as-subject at entity level (TICKET-0003)
+## Voice is "jag" + company-as-subject at entity level ([TICKET-0003](../tickets/TICKET-0003-honest-voice-and-customer-trust.md))
 - **note:** Per owner directive, all "vi/oss" copy was reworked to a one-person
   voice. Choice: "jag" as primary voice, "Jakup Güven AB" as subject only where
   the legal entity is the natural subject (title, meta, hero opening, footer).
-  Rationale (full analysis in reports/TICKET-0003-report.md): "jag" answers the
+  Rationale (full analysis in reports/[TICKET-0003](../tickets/TICKET-0003-honest-voice-and-customer-trust.md)-report.md): "jag" answers the
   size question honestly instead of dodging it, and the target audience deals
   with one-person firms daily. Owner should read the new "Vem du pratar med" and
   Kontakt sections and confirm the voice sounds like him.
-- **source:** developer (TICKET-0003 implementation)
+- **source:** developer ([TICKET-0003](../tickets/TICKET-0003-honest-voice-and-customer-trust.md) implementation)
 - **date:** 2026-06-09
 - **status:** confirmed 2026-06-12 — owner read-through done, site approved as
   published; see decisions.md "Owner approves the live site as published"
 
-## Org-nr in footer — developer recommendation: add it (TICKET-0003)
-- **note:** Still the owner's open call (see TICKET-0001 note above), but
-  TICKET-0003's customer analysis strengthens the case for publishing it: the
+## Org-nr in footer — developer recommendation: add it ([TICKET-0003](../tickets/TICKET-0003-honest-voice-and-customer-trust.md))
+- **note:** Still the owner's open call (see [TICKET-0001](../tickets/TICKET-0001-build-static-site-v1.md) note above), but
+  [TICKET-0003](../tickets/TICKET-0003-honest-voice-and-customer-trust.md)'s customer analysis strengthens the case for publishing it: the
   target audience routinely checks suppliers on allabolag.se, the org-nr is
   already public there, it's standard practice on Swedish company sites, and its
   absence is more conspicuous than its presence. Not added pending owner
   decision.
-- **source:** developer (TICKET-0003 customer-expectation analysis)
+- **source:** developer ([TICKET-0003](../tickets/TICKET-0003-honest-voice-and-customer-trust.md) customer-expectation analysis)
 - **date:** 2026-06-09
 - **status:** resolved 2026-06-12 — org.nr 559582-8921 was already added to the
-  footer under TICKET-0005 (HQ D-0017: "real org.nr in the footer"); the owner
+  footer under [TICKET-0005](../tickets/TICKET-0005-adopt-concept-design.md) (HQ D-0017: "real org.nr in the footer"); the owner
   explicitly endorsed the developer's recommendation 2026-06-12 ("go with
   developers recommendation"). No change needed — already live
 
-## Concept adoption: judgment calls inside the overrides (TICKET-0005)
+## Concept adoption: judgment calls inside the overrides ([TICKET-0005](../tickets/TICKET-0005-adopt-concept-design.md))
 - **note:** Developer choices where the ticket left room, all open to owner
   revision: (1) the kit academy screens showed a premium-course monthly amount —
   treated as a product price and removed under override 1; fake customer amounts
@@ -76,8 +76,8 @@ public-safe.
   mailto (no such pages exist — separate ticket if wanted); (4) embedded product
   mocks are aria-hidden and out of tab order; on narrow phones they scroll
   sideways inside their frames rather than shrinking.
-- **source:** developer (TICKET-0005 implementation; details in
-  reports/TICKET-0005-report.md)
+- **source:** developer ([TICKET-0005](../tickets/TICKET-0005-adopt-concept-design.md) implementation; details in
+  reports/[TICKET-0005](../tickets/TICKET-0005-adopt-concept-design.md)-report.md)
 - **date:** 2026-06-11
 - **status:** confirmed 2026-06-12 — owner read-through done, site approved as
   published; see decisions.md "Owner approves the live site as published"

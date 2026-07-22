@@ -53,7 +53,7 @@ yet. Remove it and replace it with a step a first-time visitor can grasp.
       one card changed.)*
 - [x] `tests:` field records what was actually checked, honestly.
 - [x] **Deployed:** pushed to origin and live render spot-checked — push performed
-      by the owner or by the strategist per the same procedure as TICKET-0005
+      by the owner or by the strategist per the same procedure as [TICKET-0005](TICKET-0005-adopt-concept-design.md)
       (owner's 2026-06-10 deploy grant; this ticket is a correction to that same
       live deliverable). Done 2026-06-11 (recorded in State above).
 

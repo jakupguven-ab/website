@@ -6,17 +6,17 @@
   (owner instruction "perform hygiene tasks"). The state was stale: the checks
   this ticket was waiting on were run and recorded under successor tickets while
   this one stayed open. The v1 this ticket built has since been reworked
-  (TICKET-0003 voice, TICKET-0004 styling, TICKET-0005 concept adoption); the
+  ([TICKET-0003](TICKET-0003-honest-voice-and-customer-trust.md) voice, [TICKET-0004](TICKET-0004-styling-improvements.md) styling, [TICKET-0005](TICKET-0005-adopt-concept-design.md) concept adoption); the
   DoD criteria below are verified-met on the live successor site.
 - **commit:** 2c3ae97 (committed by the assistant on the developer's behalf — background
   agents cannot run git; authorship noted in the commit message)
 - **tests:** assistant content-scope review of index.html 2026-06-09 (Swedish, no real
   estate/prices/internals, info@jakupguven.se as text + mailto, relative URLs only).
   The remaining checks (browser render, responsive, links) were performed on the
-  successor site and recorded in TICKET-0005's tests field (headless Chrome 149,
+  successor site and recorded in [TICKET-0005](TICKET-0005-adopt-concept-design.md)'s tests field (headless Chrome 149,
   2026-06-10/11: file:// render, Pages-subpath simulation, responsive 390/1280 +
   programmatic overflow probes, 122 link references resolved, content greps — no
-  prices, org.nr + info@ present) and TICKET-0002 (live fetch of the Pages URL).
+  prices, org.nr + info@ present) and [TICKET-0002](TICKET-0002-github-pages-hosting.md) (live fetch of the Pages URL).
   HTML-validator pass was never run — recorded honestly per the DoD's own rule.
   Owner approved the live site 2026-06-12 (knowledge/decisions.md).
 - **opened:** 2026-06-09
@@ -55,4 +55,4 @@ content scope and technical constraints in this repo's CLAUDE.md.
 ## Notes
 
 Keep it small: a single page or a handful of pages. v1's job is to exist, be true,
-and look competent — not to be clever. TICKET-0002 handles hosting.
+and look competent — not to be clever. [TICKET-0002](TICKET-0002-github-pages-hosting.md) handles hosting.

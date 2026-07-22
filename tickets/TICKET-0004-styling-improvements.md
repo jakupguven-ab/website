@@ -25,7 +25,7 @@
 ## Ask
 
 Owner directive (2026-06-09): he expects **visible improvements to the styling**, not
-just the copy rework. TICKET-0003's analysis judged the plain look sufficient; the
+just the copy rework. [TICKET-0003](TICKET-0003-honest-voice-and-customer-trust.md)'s analysis judged the plain look sufficient; the
 owner has overridden that — raise the visual quality.
 
 ## Definition of done
@@ -58,6 +58,6 @@ owner has overridden that — raise the visual quality.
 
 ## Notes
 
-The live site (currently the pre-TICKET-0003 version) is at
-https://jakupguven-ab.github.io/website/ . This ticket + TICKET-0003's voice rework
+The live site (currently the pre-[TICKET-0003](TICKET-0003-honest-voice-and-customer-trust.md) version) is at
+https://jakupguven-ab.github.io/website/ . This ticket + [TICKET-0003](TICKET-0003-honest-voice-and-customer-trust.md)'s voice rework
 will be published together.

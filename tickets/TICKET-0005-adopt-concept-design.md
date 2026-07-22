@@ -61,7 +61,7 @@ decisions, the decisions win.
       integrations band, final CTA, footer.
 - [x] **Override 1 — no prices:** the pricing section ("Ett team du kan växa med",
       all price cards and amounts) is removed entirely. No prices anywhere on the
-      site, per the standing rule from TICKET-0001.
+      site, per the standing rule from [TICKET-0001](TICKET-0001-build-static-site-v1.md).
 - [x] **Override 2 — brand:** all branding is **Jakup Güven AB** (header, title,
       footer with real org.nr 559582-8921), contact **info@jakupguven.se** as visible
       text + mailto. "Virtuella medarbetare" may describe the concept in copy but is
@@ -105,6 +105,6 @@ decisions, the decisions win.
 
 Owner decision trail: HQ `knowledge/decisions.md`, "Website blend + desktop demo —
 owner selections" (2026-06-10). The tension between publishing unbuilt capabilities
-(BankID, ROT/RUT, inköp, akademin) and TICKET-0003's honest-voice principle was
+(BankID, ROT/RUT, inköp, akademin) and [TICKET-0003](TICKET-0003-honest-voice-and-customer-trust.md)'s honest-voice principle was
 flagged to the owner explicitly; the owner chose full concept copy regardless. Do not
 water the copy down citing the earlier ticket — that decision is made.

@@ -61,5 +61,5 @@ frozen snapshot — it is NOT kept in sync with the desktop app.
 
 ## Notes
 
-Cross-repo trail: HQ TICKET-0001 (setup), Platform TICKET-0009 (WASM host source).
+Cross-repo trail: HQ [TICKET-0001](TICKET-0001-build-static-site-v1.md) (setup), Platform TICKET-0009 (WASM host source).
 Do not start until TICKET-0009's output exists.

@@ -25,4 +25,4 @@ the established procedure.
 
 ## Notes
 
-Raised by the owner reviewing the live site after TICKET-0005/0006.
+Raised by the owner reviewing the live site after [TICKET-0005](TICKET-0005-adopt-concept-design.md)/0006.

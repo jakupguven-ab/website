@@ -22,9 +22,9 @@ public-safe decisions belong here.
 ## Owner approves the live site as published
 - **what:** The owner has read and approved the live site as it stands
   (2026-06-12): the one-person "jag" voice and about-section wording
-  (TICKET-0003), the concept-adoption judgment calls (TICKET-0005 — BankID cell
+  ([TICKET-0003](../tickets/TICKET-0003-honest-voice-and-customer-trust.md)), the concept-adoption judgment calls ([TICKET-0005](../tickets/TICKET-0005-adopt-concept-design.md) — BankID cell
   replacement, pricing removal, footer link handling), and the org.nr in the
-  footer (the developer's recommendation, implemented under TICKET-0005). The
+  footer (the developer's recommendation, implemented under [TICKET-0005](../tickets/TICKET-0005-adopt-concept-design.md)). The
   open owner-read-through notes in working-notes.md are resolved by this
   approval. Swedish-only content stands as published.
 - **provenance:** owner decision, strategist conversation 2026-06-12 — "I am
