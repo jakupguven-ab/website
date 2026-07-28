@@ -8,3 +8,13 @@ Thumbs.db
 
 # local-only Claude Code settings
 .claude/settings.local.json
+
+# Claude Code per-session worktrees (native `claude --worktree` / desktop auto-worktree).
+# Local-only by construction: a linked worktree's contents are another branch's files.
+# Was previously covered only by .git/info/exclude, which is never committed.
+.claude/worktrees/
+
+# Local-model harness residue. Aider drops its full chat transcript into whatever
+# worktree it is pointed at (.aider.chat.history.md / .aider.input.history /
+# .aider.tags.cache.v4/). A blanket `git add -A` would commit the conversation.
+.aider*
