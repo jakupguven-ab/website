@@ -9,4 +9,4 @@ Fully static (plain HTML + CSS, no build step). Served by GitHub Pages from `mai
 root. Swedish-first. Contact: info@jakupguven.se.
 
 This repo is public — nothing non-public goes in it, including comments and commit
-messages. Team conventions and content scope: see `CLAUDE.md`.
+messages. Content scope and constraints: see `CLAUDE.md`. Pending work: `TODO.md`.
