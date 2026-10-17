@@ -69,12 +69,12 @@
   <section id="prova" aria-labelledby="prova-h">
     <h2 id="prova-h">Prova AI-boxen</h2>
     <p>Chatta med en av våra egna boxar direkt här på sidan. Fyll i formuläret så skickar vi en kod via mejl.
-    Provet gäller i 7 dagar från första användningen, eller 50 frågor.</p>
+    Provet pågår i 15 minuter från första användningen.</p>
     <p class="small">Skriv inga riktiga patient- eller kunduppgifter: chattarna raderas när provet är slut.
     Webbsökningar går ut på internet, och varje sökning syns i chatten. Namn, företag och e-post används bara för
     provet och raderas senast 90 dagar efter att det är slut.</p>
     <p class="small" lang="en">Try the AI box: chat with one of our own boxes right here. Fill in the form and we'll
-    mail you a code (7 days from first use, or 50 questions).</p>
+    mail you a code (15 minutes from first use).</p>
 
     <form id="req" novalidate>
       <label>Namn <input name="name" autocomplete="name" required maxlength="80"></label>
@@ -161,8 +161,9 @@
         if (s.state === "active" || s.state === "grace") {
           if (!panel.classList.contains("on")) { frame.src = API + "/trial/start"; open(); }
           $("st-q").textContent = s.limit ? "Frågor: " + s.used + " av " + s.limit : "";
-          $("st-end").textContent = "Provet slutar " + new Date(s.ends * 1000).toLocaleDateString("sv-SE",
-                                    { day: "numeric", month: "long" });
+          var left = Math.max(0, Math.ceil((s.ends * 1000 - Date.now()) / 60000));
+          $("st-end").textContent = left > 1440 ? "Provet slutar " + new Date(s.ends * 1000).toLocaleDateString("sv-SE",
+                                    { day: "numeric", month: "long" }) : left + " min kvar";
         } else if (s.state === "over") {
           $("st-q").textContent = ""; $("st-end").textContent = "Provet är slut.";
         }
@@ -188,7 +189,7 @@
   } else {
     status();
   }
-  setInterval(function () { if (panel.classList.contains("on")) status(); }, 60000);
+  setInterval(function () { if (panel.classList.contains("on")) status(); }, 15000);
 })();
 </script>
 </body>
