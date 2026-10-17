@@ -148,7 +148,8 @@
   function open() {
     panel.classList.add("on");
     code.style.display = "none";
-    panel.scrollIntoView({ behavior: "smooth", block: "start" });
+    req.style.display = "none";
+    panel.scrollIntoView({ block: "start" });
   }
 
   code.addEventListener("submit", function () { open(); setTimeout(status, 4000); });
@@ -171,7 +172,7 @@
 
   window.addEventListener("message", function (e) {
     if (e.origin !== API || !e.data || !e.data.trial) return;
-    if (e.data.trial === "unknown" || e.data.trial === "nocode") code.style.display = "";
+    if (e.data.trial === "unknown" || e.data.trial === "nocode") { code.style.display = ""; req.style.display = ""; }
     status();
   });
 
@@ -180,6 +181,8 @@
     code.elements.code.value = kod;
     history.replaceState(null, "", location.pathname + "#prova");
     open();
+    // the link's #prova jump can land after open(); bring the chat back into view once it has loaded
+    frame.addEventListener("load", function () { panel.scrollIntoView({ block: "start" }); }, { once: true });
     code.submit();
     setTimeout(status, 4000);
   } else {

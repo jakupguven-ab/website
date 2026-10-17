@@ -21,11 +21,16 @@ The public-safe story:
 - **Swedish-first:** Swedish integrations, Swedish accounting rules done right, a local
   Malmö company you can talk to.
 - **Publish no prices.** Contact: **info@jakupguven.se** — a mailto and the address in
-  text. No forms, no backend.
+  text. The one exception is the trial section (`#prova`, owner 2026-10-16): its request form
+  and chat frame talk to the trial service at trial.jakupguven.se (Box repo, `trial/`). No other
+  forms; the site itself stays static.
 
 ## Technical constraints
 - **Fully static** — plain HTML + CSS (vanilla JS only if truly needed). No frameworks,
-  no build step, no CMS, no analytics/cookies (avoids the consent banner).
+  no build step, no CMS, no analytics/cookies (avoids the consent banner). The trial's own
+  sign-in cookies live on trial.jakupguven.se and are needed for the chat to work.
+- Local preview of the trial section: run the trial service on localhost:8100 (the page
+  switches to it when served from localhost) and the site on localhost:8000.
 - Hosted on **GitHub Pages** from `main` / root; keep paths relative.
 - **This repo is public** — never put anything non-public in it, including comments and
   commit messages.
