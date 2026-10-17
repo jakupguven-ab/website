@@ -6,20 +6,52 @@
 <title>Jakup Güven AB</title>
 <meta name="description" content="Jakup Güven AB utvecklar lokala AI-system för företag med känsliga data.">
 <style>
-  :root { --bg: #fbfaf8; --text: #1d1d1f; --muted: #5f6368; --line: #e3e1dc; --accent: #1f4e79; }
+  :root { --bg: #fbfaf8; --text: #1d1d1f; --muted: #5f6368; --line: #e3e1dc; --accent: #1f4e79; --field: #ffffff;
+          --ok: #1d6b3a; --err: #a12a2a; }
   @media (prefers-color-scheme: dark) {
-    :root { --bg: #141416; --text: #ececec; --muted: #a0a0a6; --line: #2c2c30; --accent: #8db8e8; }
+    :root { --bg: #141416; --text: #ececec; --muted: #a0a0a6; --line: #2c2c30; --accent: #8db8e8; --field: #1c1c1f;
+            --ok: #7fcf98; --err: #f08c8c; }
   }
   * { box-sizing: border-box; margin: 0; }
   body { background: var(--bg); color: var(--text); font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
   main { max-width: 640px; margin: 0 auto; padding: 72px 20px 48px; }
   h1 { font-size: 30px; font-weight: 650; letter-spacing: -0.01em; }
+  h2 { font-size: 21px; font-weight: 650; }
   .lead { margin-top: 18px; }
   .en { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); }
   dl { margin-top: 40px; display: grid; grid-template-columns: max-content 1fr; gap: 6px 20px; font-size: 15px; }
   dt { color: var(--muted); }
   a { color: var(--accent); }
   footer { margin-top: 56px; font-size: 13px; color: var(--muted); }
+
+  #prova { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+  #prova > p { margin-top: 12px; }
+  .small { font-size: 14px; color: var(--muted); }
+  form { margin-top: 20px; display: grid; gap: 12px; }
+  label { display: grid; gap: 4px; font-size: 15px; }
+  input, textarea, select, button { font: inherit; color: inherit; }
+  input, textarea, select { width: 100%; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px;
+                            background: var(--field); }
+  textarea { min-height: 84px; resize: vertical; }
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
+  button { justify-self: start; padding: 9px 18px; border: 0; border-radius: 8px; background: var(--accent);
+           color: var(--bg); font-weight: 600; cursor: pointer; }
+  button:disabled { opacity: .6; cursor: default; }
+  .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .row { display: flex; gap: 10px; align-items: end; flex-wrap: wrap; }
+  .row label { flex: 1 1 200px; }
+  .msg { font-size: 15px; min-height: 1.6em; }
+  .msg.ok { color: var(--ok); }
+  .msg.err { color: var(--err); }
+  .have-code { margin-top: 28px; }
+
+  html { overflow-x: clip; }
+  .panel { --w: min(1100px, calc(100vw - 32px)); display: none; margin-top: 24px; width: var(--w);
+           margin-left: calc((100% - var(--w)) / 2); }
+  .panel.on { display: block; }
+  .panel iframe { display: block; width: 100%; height: min(82vh, 920px); min-height: 480px; border: 1px solid var(--line);
+                  border-radius: 12px; background: var(--bg); }
+  .panel .status { margin-top: 8px; font-size: 14px; color: var(--muted); display: flex; gap: 16px; flex-wrap: wrap; }
 </style>
 </head>
 <body>
@@ -34,6 +66,45 @@
   language models that run on a server on the customer's own premises, so documents and conversations stay with the
   customer. More information is coming soon.</p>
 
+  <section id="prova" aria-labelledby="prova-h">
+    <h2 id="prova-h">Prova AI-boxen</h2>
+    <p>Chatta med en av våra egna boxar direkt här på sidan. Fyll i formuläret så skickar vi en kod via mejl.
+    Provet gäller i 7 dagar från första användningen, eller 50 frågor.</p>
+    <p class="small">Skriv inga riktiga patient- eller kunduppgifter: chattarna raderas när provet är slut.
+    Webbsökningar går ut på internet, och varje sökning syns i chatten. Namn, företag och e-post används bara för
+    provet och raderas senast 90 dagar efter att det är slut.</p>
+    <p class="small" lang="en">Try the AI box: chat with one of our own boxes right here. Fill in the form and we'll
+    mail you a code (7 days from first use, or 50 questions).</p>
+
+    <form id="req" novalidate>
+      <label>Namn <input name="name" autocomplete="name" required maxlength="80"></label>
+      <label>Företag eller verksamhet <input name="company" autocomplete="organization" maxlength="120"></label>
+      <label>E-post <input name="email" type="email" autocomplete="email" required maxlength="200"></label>
+      <label>Vad vill du prova? (frivilligt)
+        <textarea name="purpose" maxlength="1000"></textarea></label>
+      <label>Språk i mejlet / Mail language
+        <select name="lang"><option value="sv">Svenska</option><option value="en">English</option></select></label>
+      <div class="hp" aria-hidden="true"><label>Webbplats <input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <button type="submit">Be om en kod</button>
+      <p class="msg" id="req-msg" role="status"></p>
+    </form>
+
+    <form id="code" class="have-code" method="post" target="trialframe">
+      <div class="row">
+        <label>Har du en kod? / Have a code?
+          <input name="code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="XXXXX-XXXXX"
+                 maxlength="20" required></label>
+        <button type="submit">Öppna</button>
+      </div>
+    </form>
+
+    <div class="panel" id="panel">
+      <iframe name="trialframe" id="trialframe" title="AI-boxen, provet" allow="clipboard-write"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-downloads allow-modals allow-top-navigation-by-user-activation"></iframe>
+      <div class="status"><span id="st-q"></span><span id="st-end"></span></div>
+    </div>
+  </section>
+
   <dl>
     <dt>Företag</dt><dd>Jakup Güven AB</dd>
     <dt>Org.nr</dt><dd>559582-8921</dd>
@@ -43,5 +114,79 @@
 
   <footer>© 2026 Jakup Güven AB</footer>
 </main>
+<script>
+(function () {
+  // a local preview (trial.py on this machine) or the real one
+  var API = location.hostname === "localhost" ? "http://localhost:8100" : "https://trial.jakupguven.se";
+  var $ = function (id) { return document.getElementById(id); };
+  var req = $("req"), code = $("code"), panel = $("panel"), frame = $("trialframe");
+  code.action = API + "/trial/start";
+
+  function say(text, kind) { var m = $("req-msg"); m.textContent = text; m.className = "msg " + (kind || ""); }
+
+  req.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = req.elements;
+    if (f.name.value.trim().length < 2 || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value.trim())) {
+      say("Fyll i namn och en giltig e-postadress.", "err"); return;
+    }
+    var body = {};
+    ["name", "company", "email", "purpose", "lang", "website"].forEach(function (k) { body[k] = f[k].value; });
+    var btn = req.querySelector("button"); btn.disabled = true; say("Skickar…");
+    fetch(API + "/trial/api/request", { method: "POST", headers: { "Content-Type": "application/json" },
+                                        body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return [r.status, d]; }); })
+      .then(function (x) {
+        if (x[1].ok) { say("Tack! Vi hör av oss med en kod via mejl.", "ok"); req.reset(); return; }
+        btn.disabled = false;
+        say(x[0] === 429 ? "Många förfrågningar just nu. Försök igen senare, eller mejla oss."
+                         : "Kontrollera namn och e-postadress.", "err");
+      })
+      .catch(function () { btn.disabled = false; say("Det gick inte att skicka. Mejla jakup@jakupguven.se i stället.", "err"); });
+  });
+
+  function open() {
+    panel.classList.add("on");
+    code.style.display = "none";
+    panel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  code.addEventListener("submit", function () { open(); setTimeout(status, 4000); });
+
+  function status() {
+    fetch(API + "/trial/api/status", { credentials: "include", cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (s) {
+        if (s.state === "active" || s.state === "grace") {
+          if (!panel.classList.contains("on")) { frame.src = API + "/trial/start"; open(); }
+          $("st-q").textContent = s.limit ? "Frågor: " + s.used + " av " + s.limit : "";
+          $("st-end").textContent = "Provet slutar " + new Date(s.ends * 1000).toLocaleDateString("sv-SE",
+                                    { day: "numeric", month: "long" });
+        } else if (s.state === "over") {
+          $("st-q").textContent = ""; $("st-end").textContent = "Provet är slut.";
+        }
+      })
+      .catch(function () {});
+  }
+
+  window.addEventListener("message", function (e) {
+    if (e.origin !== API || !e.data || !e.data.trial) return;
+    if (e.data.trial === "unknown" || e.data.trial === "nocode") code.style.display = "";
+    status();
+  });
+
+  var kod = new URLSearchParams(location.search).get("kod");
+  if (kod) {
+    code.elements.code.value = kod;
+    history.replaceState(null, "", location.pathname + "#prova");
+    open();
+    code.submit();
+    setTimeout(status, 4000);
+  } else {
+    status();
+  }
+  setInterval(function () { if (panel.classList.contains("on")) status(); }, 60000);
+})();
+</script>
 </body>
 </html>
